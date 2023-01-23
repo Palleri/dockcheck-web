@@ -13,7 +13,7 @@ RUN mkdir /app
 COPY run.sh /app/run.sh 
 
 #COPY bin/* /etc/
-COPY src /var/www/
+COPY src/ /var/www/
 
 
 #RUN adduser dockcheck
