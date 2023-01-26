@@ -1,7 +1,7 @@
 #!/bin/bash
 #curl -L "https://raw.githubusercontent.com/mag37/dockcheck/main/dockcheck.sh" > /app/dockcheck.sh
 chmod +x /app/dockcheck.sh
-cp /var/www/* /var/www/html/
+cp /var/www/tmp/* /var/www/html/
 
 #curl -L "https://github.com/regclient/regclient/releases/download/v0.4.5/regctl-linux-amd64" > /app/regctl
 chmod +x /app/regctl

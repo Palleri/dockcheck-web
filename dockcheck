@@ -1,2 +1,2 @@
-#!/bin/sh
-/app/dockcheck.sh -n
+#!/bin/bash
+/app/dockcheck.sh -n | sed -r "s:\x1B\[[0-9;]*[mK]::g" > /app/containers
