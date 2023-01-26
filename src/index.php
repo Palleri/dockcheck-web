@@ -21,7 +21,7 @@
 #$conlatest_regexp = "/(?<=Containers on latest version:\n)(?s).*?(?=\n\n)/";
 preg_match("/(?<=Containers on latest version:\n)(?s).*?(?=\n\n)/", file_get_contents("/app/containers"), $conlatest_match);
 preg_match("/(?<=Containers with errors, wont get updated:\n)(?s).*?(?=\n\n)/", file_get_contents("/app/containers"), $conerror_match);
-preg_match("/(?<=Containers with errors, wont get updated:\n)(?s).*?(?=\n\n)/", file_get_contents("/app/containers"), $conerror_match);
+preg_match("/(?<=Containers with updates available:\n)(?s).*?(?=\n\n)/", file_get_contents("/app/containers"), $conupdate_match);
 
 
 #print_r($conlatest_match);
@@ -30,11 +30,11 @@ preg_match("/(?<=Containers with errors, wont get updated:\n)(?s).*?(?=\n\n)/", 
 $keyslatest = array_keys($conlatest_match);
 $arraysizelatest = count($conlatest_match); 
 
-$keyserror = array_keys($conlatest_match);
+$keyserror = array_keys($conerror_match);
 $arraysizeerror = count($conerror_match);
 
-$keyserror = array_keys($conlatest_match);
-$arraysizeerror = count($conerror_match); 
+$keysupdate = array_keys($conupdate_match);
+$arraysizeupdate = count($conupdate_match);
 
 ?>
 <div class="row">
@@ -46,6 +46,7 @@ $arraysizeerror = count($conerror_match);
         <th></th>
       </tr>
       <?php
+      if(!empty($conlatest_match)) {
             for($i=0; $i < $arraysizelatest; $i++) {
                 echo '<tr>';
                 echo '<td>' . $conlatest_match[$keyslatest[$i]] . '</td>';
@@ -53,6 +54,7 @@ $arraysizeerror = count($conerror_match);
                 echo '<td></td>';
                 echo '</tr>';
             }
+          }
         ?>
     </table>
     
@@ -64,21 +66,17 @@ $arraysizeerror = count($conerror_match);
         <th></th>
         <th></th>
       </tr>
-      <tr>
-        <td>con4</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>con5</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>con6</td>
-        <td></td>
-        <td></td>
-      </tr>
+      <?php
+      if(!empty($conupdate_match)) {
+            for($i=0; $i < $arraysizeupdate; $i++) {
+                echo '<tr>';
+                echo '<td>' . $conupdate_match[$keysupdate[$i]] . '</td>';
+                echo '<td></td>';
+                echo '<td></td>';
+                echo '</tr>';
+            }
+          }
+        ?>
     </table>
 
   </div>
@@ -94,13 +92,16 @@ $arraysizeerror = count($conerror_match);
         <th></th>
       </tr>
       <?php
+        if(!empty($conerror_match)) {
             for($i=0; $i < $arraysizeerror; $i++) {
                 echo '<tr>';
                 echo '<td>' . $conerror_match[$keyserror[$i]] . '</td>';
                 echo '<td></td>';
                 echo '<td></td>';
                 echo '</tr>';
+
             }
+          }
         ?>
     </table>
 
