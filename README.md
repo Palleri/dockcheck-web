@@ -8,7 +8,6 @@
 
 This image provide an webpage running as a container.
 
-<img alt="logo" src="https://imgur.com/a/34s87jM">
 
 ```yml
 version: '3.2'
