@@ -6,14 +6,36 @@
     </head>
 <body>
 <?php
-$data = @file("/app/containers");
+
+
 ?>
 
 <div class="content">
 <h1><a href=index.php>DockCheck</a></h1>
 
 <?
-echo $data;
+#$conlatest = file_get_contents("/app/containers");
+#$conlatest = (file_get_contents("/app/containers"));
+
+
+#$conlatest_regexp = "/(?<=Containers on latest version:\n)(?s).*?(?=\n\n)/";
+preg_match("/(?<=Containers on latest version:\n)(?s).*?(?=\n\n)/", file_get_contents("/app/containers"), $conlatest_match);
+preg_match("/(?<=Containers with errors, wont get updated:\n)(?s).*?(?=\n\n)/", file_get_contents("/app/containers"), $conerror_match);
+preg_match("/(?<=Containers with errors, wont get updated:\n)(?s).*?(?=\n\n)/", file_get_contents("/app/containers"), $conerror_match);
+
+
+#print_r($conlatest_match);
+#print_r(array_keys($conlatest_match));
+
+$keyslatest = array_keys($conlatest_match);
+$arraysizelatest = count($conlatest_match); 
+
+$keyserror = array_keys($conlatest_match);
+$arraysizeerror = count($conerror_match);
+
+$keyserror = array_keys($conlatest_match);
+$arraysizeerror = count($conerror_match); 
+
 ?>
 <div class="row">
   <div class="column">
@@ -23,21 +45,15 @@ echo $data;
         <th></th>
         <th></th>
       </tr>
-      <tr>
-        <td>con1</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>con2</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>con3</td>
-        <td></td>
-        <td></td>
-      </tr>
+      <?php
+            for($i=0; $i < $arraysizelatest; $i++) {
+                echo '<tr>';
+                echo '<td>' . $conlatest_match[$keyslatest[$i]] . '</td>';
+                echo '<td></td>';
+                echo '<td></td>';
+                echo '</tr>';
+            }
+        ?>
     </table>
     
   </div>
@@ -77,21 +93,15 @@ echo $data;
         <th></th>
         <th></th>
       </tr>
-      <tr>
-        <td>con44</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>con54</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>con64</td>
-        <td></td>
-        <td></td>
-      </tr>
+      <?php
+            for($i=0; $i < $arraysizeerror; $i++) {
+                echo '<tr>';
+                echo '<td>' . $conerror_match[$keyserror[$i]] . '</td>';
+                echo '<td></td>';
+                echo '<td></td>';
+                echo '</tr>';
+            }
+        ?>
     </table>
 
   </div>
