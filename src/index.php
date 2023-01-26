@@ -67,7 +67,7 @@ $arraysizeupdate = count($conupdate_match);
   <div class="column">
     <table>
       <tr>
-        <th>Updated</th>
+        <th class="latest">Latest</th>
         <th></th>
         <th></th>
       </tr>
@@ -90,7 +90,7 @@ $arraysizeupdate = count($conupdate_match);
   <div class="column">
     <table>
       <tr>
-        <th>Update is available</th>
+        <th class="update">Update is available</th>
         <th></th>
         <th></th>
       </tr>
@@ -115,7 +115,7 @@ $arraysizeupdate = count($conupdate_match);
     <hr>
     <table>
       <tr>
-        <th>Error</th>
+        <th class="error">Error</th>
         <th></th>
         <th></th>
       </tr>
