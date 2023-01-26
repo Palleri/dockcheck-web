@@ -14,15 +14,40 @@
 <h1><a href=index.php>DockCheck</a></h1>
 
 <?
-#$conlatest = file_get_contents("/app/containers");
-#$conlatest = (file_get_contents("/app/containers"));
+
+
+
+$filename = '/app/containers';
+$f = fopen($filename, 'r');
+
+if ($f) {
+    $contents = fread($f, filesize($filename));
+    fclose($f);
+    preg_match("/(?<=Containers with errors, wont get updated:\n)(?s).*?(?=\n\n)/", $contents, $conerror_match); 
+    $string_output_error = implode('', $conerror_match);
+    $conerror_match = preg_split('`\n`', $string_output_error);
+
+    preg_match("/(?<=Containers on latest version:\n)(?s).*?(?=\n\n)/", $contents, $conlatest_match);    
+    $string_output_latest = implode('', $conlatest_match);
+    $conlatest_match = preg_split('`\n`', $string_output_latest);
+
+    preg_match("/(?<=Containers with updates available:\n)(?s).*?(?=\n\n)/", $contents, $conupdate_match);
+    $string_output_update = implode('', $conupdate_match);
+    $conupdate_match = preg_split('`\n`', $string_output_update);
+}
+
+
+
 
 
 #$conlatest_regexp = "/(?<=Containers on latest version:\n)(?s).*?(?=\n\n)/";
-preg_match("/(?<=Containers on latest version:\n)(?s).*?(?=\n\n)/", file_get_contents("/app/containers"), $conlatest_match);
-preg_match("/(?<=Containers with errors, wont get updated:\n)(?s).*?(?=\n\n)/", file_get_contents("/app/containers"), $conerror_match);
-preg_match("/(?<=Containers with updates available:\n)(?s).*?(?=\n\n)/", file_get_contents("/app/containers"), $conupdate_match);
+#preg_match("/(?<=Containers on latest version:\n)(?s).*?(?=\n\n)/", file_get_contents("/app/containers"), $conlatest_match);
+#preg_match("/(?<=Containers with errors, wont get updated:\n)(?s).*?(?=\n\n)/", file_get_contents("/app/containers"), $conerror_match);
+#preg_match("/(?<=Containers with updates available:\n)(?s).*?(?=\n\n)/", file_get_contents("/app/containers"), $conupdate_match);
 
+
+
+#$conerror_match = nl2br($conerror_match);
 
 #print_r($conlatest_match);
 #print_r(array_keys($conlatest_match));
@@ -33,6 +58,7 @@ $arraysizelatest = count($conlatest_match);
 $keyserror = array_keys($conerror_match);
 $arraysizeerror = count($conerror_match);
 
+
 $keysupdate = array_keys($conupdate_match);
 $arraysizeupdate = count($conupdate_match);
 
@@ -41,7 +67,7 @@ $arraysizeupdate = count($conupdate_match);
   <div class="column">
     <table>
       <tr>
-        <th>Updates</th>
+        <th>Updated</th>
         <th></th>
         <th></th>
       </tr>
@@ -55,14 +81,16 @@ $arraysizeupdate = count($conupdate_match);
                 echo '</tr>';
             }
           }
+        
         ?>
+        
     </table>
     
   </div>
   <div class="column">
     <table>
       <tr>
-        <th>No updates</th>
+        <th>Update is available</th>
         <th></th>
         <th></th>
       </tr>
