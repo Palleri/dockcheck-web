@@ -67,7 +67,7 @@ $arraysizeupdate = count($conupdate_match);
   <div class="column">
     <table>
       <tr>
-        <th class="latest">Latest</th>
+        <th class="latest">Containers on latest version:</th>
         <th></th>
         <th></th>
       </tr>
@@ -90,7 +90,7 @@ $arraysizeupdate = count($conupdate_match);
   <div class="column">
     <table>
       <tr>
-        <th class="update">Update is available</th>
+        <th class="update">Containers with updates available:</th>
         <th></th>
         <th></th>
       </tr>
@@ -115,7 +115,7 @@ $arraysizeupdate = count($conupdate_match);
     <hr>
     <table>
       <tr>
-        <th class="error">Error</th>
+        <th class="error">Containers with errors, wont get updated:</th>
         <th></th>
         <th></th>
       </tr>
