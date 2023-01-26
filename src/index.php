@@ -1,6 +1,6 @@
 <html>
     <head>
-    <title>Certificate Web Request</title>
+    <title>Docker Updates</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favico.jpeg">
     </head>
