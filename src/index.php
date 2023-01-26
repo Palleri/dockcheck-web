@@ -5,12 +5,16 @@
     <link rel="icon" href="favico.jpeg">
     </head>
 <body>
-
+<?php
+$data = @file("/app/containers");
+?>
 
 <div class="content">
 <h1><a href=index.php>DockCheck</a></h1>
 
-
+<?
+echo $data;
+?>
 <div class="row">
   <div class="column">
     <table>
