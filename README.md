@@ -1,5 +1,6 @@
 # DockCheck
-## This image use dockcheck provided by Mag37.
+## All cred goes to Mag37 making this amazing script!
+### This image use dockcheck provided by Mag37.
 [Dockcheck @github/Mag37](https://github.com/mag37/dockcheck)
 -------
 
