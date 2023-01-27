@@ -34,4 +34,6 @@ services:
       - ./data:/var/www/html
       - /var/run/docker.sock:/var/run/docker.sock
 ```
-
+* Contributors
+  - [Mag37](https://github.com/Mag37) 👑
+  - [t0rnis](https://github.com/t0rnis) 🪖🐜
