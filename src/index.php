@@ -7,15 +7,11 @@
 <body>
 <?php
 
-
 ?>
-
 <div class="content">
 <h1><a href=index.php>DockCheck</a></h1>
 
 <?
-
-
 
 $filename = '/app/containers';
 $f = fopen($filename, 'r');
