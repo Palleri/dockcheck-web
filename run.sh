@@ -2,7 +2,8 @@
 chmod +x /app/dockcheck.sh
 cp /var/www/tmp/* /var/www/html/
 
-
+rm -rf /etc/cron.daily/*
+mv /tmp/dockcheck /etc/cron.daily/dockcheck
 chmod +x /app/regctl
 chmod +x /etc/cron.daily/dockcheck
 mv /app/regctl /usr/bin/

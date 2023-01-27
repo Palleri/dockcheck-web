@@ -8,7 +8,7 @@ RUN curl -L "https://github.com/docker/compose/releases/download/v2.15.1/docker-
  && curl -L "https://github.com/regclient/regclient/releases/download/v0.4.5/regctl-linux-amd64" -o /app/regctl
 
 COPY run.sh /app/run.sh
-COPY dockcheck /etc/cron.daily/dockcheck
+COPY dockcheck /tmp/dockcheck
 COPY src/ /var/www/tmp
 
 ENTRYPOINT ["/app/run.sh"]
