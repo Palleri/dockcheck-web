@@ -1,5 +1,5 @@
 FROM php:8.1-rc-apache
-RUN curl -L "https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-linux-armv6" -o /usr/local/bin/docker-compose
+RUN curl -L "https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-linux-armv7" -o /usr/local/bin/docker-compose
 RUN mkdir /app
 RUN mkdir /var/www/tmp
 RUN apt update && apt install docker.io -y
