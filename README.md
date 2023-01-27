@@ -12,6 +12,10 @@ This image provide an webpage running as a container.
 
 
 
+### Future ideas
+* Email notification on available images
+* Update and pull new image on selected container via webgui
+
 ### Bugs and fixes
 
 1. <s>Cronjob not working properly</s> <b>(Fixed 2023-01-27)</b>
