@@ -10,7 +10,19 @@ This image provide an webpage running as a container.
 
 <img alt="logo" src="https://i.imgur.com/ElFdJ9t.png">
 
+-------
 
+# ARM support now available at [hub.docker/Palleri](https://hub.docker.com/r/palleri/dockcheck-web/tags)
+Git branch (ARM)
+
+Change image from 
+```yml
+    image: 'palleri/dockcheck-web:latest'
+```
+to
+```yml
+    image: 'palleri/dockcheck-web:arm'
+```
 
 ### Future ideas
 * Email notification on available images
