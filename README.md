@@ -36,4 +36,4 @@ services:
 ```
 * Contributors
   - [Mag37](https://github.com/Mag37) 👑
-  - [t0rnis](https://github.com/t0rnis) 🪖🐜
+  - [t0rnis](https://github.com/t0rnis) 🪖🐛
