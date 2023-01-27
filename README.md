@@ -10,7 +10,16 @@ This image provide an webpage running as a container.
 
 <img alt="logo" src="https://i.imgur.com/1unSupa.png">
 
+
+
+### Bugs and fixes
+
+1. <s>Cronjob not working properly</s> <b>(Fixed 2023-01-27)</b>
+
+
+-------
 Checking for new images at startup and once a day at midnight.
+
 
 ```yml
 version: '3.2'
@@ -25,3 +34,4 @@ services:
       - ./data:/var/www/html
       - /var/run/docker.sock:/var/run/docker.sock
 ```
+
