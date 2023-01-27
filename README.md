@@ -25,3 +25,5 @@ services:
       - ./data:/var/www/html
       - /var/run/docker.sock:/var/run/docker.sock
 ```
+### Bugs
+- <s>Cronjob not working properly</s>
