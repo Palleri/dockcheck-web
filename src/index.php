@@ -37,21 +37,6 @@ if ($f) {
 }
 
 
-
-
-
-#$conlatest_regexp = "/(?<=Containers on latest version:\n)(?s).*?(?=\n\n)/";
-#preg_match("/(?<=Containers on latest version:\n)(?s).*?(?=\n\n)/", file_get_contents("/app/containers"), $conlatest_match);
-#preg_match("/(?<=Containers with errors, wont get updated:\n)(?s).*?(?=\n\n)/", file_get_contents("/app/containers"), $conerror_match);
-#preg_match("/(?<=Containers with updates available:\n)(?s).*?(?=\n\n)/", file_get_contents("/app/containers"), $conupdate_match);
-
-
-
-#$conerror_match = nl2br($conerror_match);
-
-#print_r($conlatest_match);
-#print_r(array_keys($conlatest_match));
-
 $keyslatest = array_keys($conlatest_match);
 $arraysizelatest = count($conlatest_match); 
 
