@@ -8,6 +8,9 @@
 
 This image provide an webpage running as a container.
 
+<img alt="logo" src="https://i.imgur.com/1unSupa.png">
+
+Checking for new images at startup and once a day at midnight.
 
 ```yml
 version: '3.2'
