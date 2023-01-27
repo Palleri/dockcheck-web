@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 chmod +x /app/dockcheck.sh
 cp /var/www/tmp/* /var/www/html/
 
