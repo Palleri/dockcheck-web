@@ -30,7 +30,7 @@ to
 
 ### Bugs and fixes
 
-1. <s>Cronjob not working properly</s> <b>(Fixed 2023-01-27)</b>
+1. <s>Cronjob not working properly</s> <b>(Fixed 2023-01-28)</b>
 
 
 -------
