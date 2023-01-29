@@ -1,4 +1,7 @@
 #!/bin/sh
+echo "# Starting Dockcheck-web #"
+echo "# Checking for new updates #"
+echo "# This might take a while, it depends on how many containers are running #"
 chmod +x /app/dockcheck.sh
 cp /var/www/tmp/* /var/www/html/
 
