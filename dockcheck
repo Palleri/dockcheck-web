@@ -1,3 +1,4 @@
 #!/bin/bash
-/app/dockcheck.sh -n | sed -r "s:\x1B\[[0-9;]*[mK]::g" > /app/containers
+/app/dockcheck.sh -n | sed -r "s:\x1B\[[0-9;]*[mK]::g" > /app/containers_temp
+cat /app/containers_temp > /app/containers
 echo "$(date). Cron ran without error." >> /var/log/cron.log
