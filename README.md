@@ -31,6 +31,10 @@ to
 ### Bugs and fixes
 
 1. <s>Cronjob not working properly</s> <b>(Fixed 2023-01-28)</b>
+2. <s>Script not running correctly</s> <b>(Fixed 2023-01-29)</b>
+3. <s>Hanging processes</s> <b>(Fixed 2023-01-28)</b>
+4. <s>Not displaying in ascending order</s> <b>(Fixed 2023-01-29)</b>
+
 
 
 -------
