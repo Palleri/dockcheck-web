@@ -30,11 +30,12 @@ to
 
 ### Bugs and fixes
 
-1. <s>Cronjob not working properly</s> <b>(Fixed 2023-01-28)</b>
-2. <s>Script not running correctly</s> <b>(Fixed 2023-01-29)</b>
-3. <s>Hanging processes</s> <b>(Fixed 2023-01-28)</b>
-4. <s>Not displaying in ascending order</s> <b>(Fixed 2023-01-29)</b>
-
+| Description | Date | Status |
+| --- | --- | --- |
+| `Cronjob not working properly` | 2023-01-28 | Closed |
+| `Script not running correctly` | 2023-01-29 | Closed |
+| `Hanging processes` | 2023-01-29 | Closed |
+| `Not displaying in ascending order` | 2023-01-29 | Closed |
 
 
 -------
