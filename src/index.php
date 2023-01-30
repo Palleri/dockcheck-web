@@ -53,7 +53,7 @@ $arraysizeupdate = count($conupdate_match);
         <th></th>
       </tr>
       <?php
-      rsort($conlatest_match);
+      sort($conlatest_match);
       if(!empty($conlatest_match)) {
             for($i=0; $i < $arraysizelatest; $i++) {
                 echo '<tr>';
@@ -77,7 +77,7 @@ $arraysizeupdate = count($conupdate_match);
         <th></th>
       </tr>
       <?php
-      rsort($conupdate_match);
+      sort($conupdate_match);
       if(!empty($conupdate_match)) {
             for($i=0; $i < $arraysizeupdate; $i++) {
                 echo '<tr>';
@@ -103,7 +103,7 @@ $arraysizeupdate = count($conupdate_match);
         <th></th>
       </tr>
       <?php
-        rsort($conerror_match);
+        sort($conerror_match);
         if(!empty($conerror_match)) {
             for($i=0; $i < $arraysizeerror; $i++) {
                 echo '<tr>';
