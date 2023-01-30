@@ -1,3 +1,5 @@
+
+
 <html>
     <head>
     <title>Docker Updates</title>
@@ -9,9 +11,59 @@
 
 ?>
 <div class="content">
-<h1><a href=index.php>DockCheck</a></h1>
 
+<h1><a href=index.php>Dockcheck</a></h1>
+<header>
+  <h1><a href=index.php?update>Check for updates</a></h1>
+  
+</header>
 <?
+
+
+
+
+
+
+if(isset($_GET['update'])){
+  
+  $create_file_update = fopen("/var/www/html/update.txt", "w") or die("Unable to open file!");
+  $txt = '1';
+  fwrite($create_file_update, $txt);
+  
+  
+  $read_file = file_get_contents('/var/www/html/update.txt');
+  
+  
+  if($read_file == '1'){
+    echo "<div class=\"loader\"></div>";
+    echo "This might take a while, it depends on how many containers are running";
+    $i = '0';
+    while($read_file == '1'){
+      $read_file = file_get_contents('/var/www/html/update.txt');
+      
+      
+flush();
+
+    }
+    
+
+      if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+      $url = "https://";   
+      else  
+      $url = "http://";   
+      
+      $url.= $_SERVER['HTTP_HOST'];   
+      $url.= $_SERVER['REQUEST_URI'];    
+      
+      $url_stripped = str_replace("?update", "", $url);
+      
+    echo "<script>window.location = '$url_stripped'</script>";
+    
+
+  }
+
+}
+
 
 $filename = '/app/containers';
 $f = fopen($filename, 'r');
@@ -53,7 +105,6 @@ $arraysizeupdate = count($conupdate_match);
         <th></th>
       </tr>
       <?php
-      sort($conlatest_match);
       if(!empty($conlatest_match)) {
             for($i=0; $i < $arraysizelatest; $i++) {
                 echo '<tr>';
@@ -77,7 +128,6 @@ $arraysizeupdate = count($conupdate_match);
         <th></th>
       </tr>
       <?php
-      sort($conupdate_match);
       if(!empty($conupdate_match)) {
             for($i=0; $i < $arraysizeupdate; $i++) {
                 echo '<tr>';
@@ -103,7 +153,6 @@ $arraysizeupdate = count($conupdate_match);
         <th></th>
       </tr>
       <?php
-        sort($conerror_match);
         if(!empty($conerror_match)) {
             for($i=0; $i < $arraysizeerror; $i++) {
                 echo '<tr>';
