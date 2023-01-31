@@ -1,3 +1,26 @@
+<?php 
+    ini_set('max_execution_time', '300');
+    set_time_limit(300);
+function bg()
+{
+  $create_file_update = fopen("/var/www/html/update.txt", "w") or die("Unable to open file!");
+  $txt = '1';
+  fwrite($create_file_update, $txt);
+  $read_file = file_get_contents('/var/www/html/update.txt');
+  if($read_file == '1'){
+    while($read_file == '1'){
+      $read_file = file_get_contents('/var/www/html/update.txt');
+      if($read_file == '1'){
+      flush();
+      }else{
+      $url = $_SERVER['REQUEST_URI'];
+      $url_stripped = str_replace("?update", "", $url);
+      echo "<script>window.location = '$url_stripped'</script>";
+      }
+    }
+  }
+}
+?>
 <html>
     <head>
     <title>Docker Updates</title>
@@ -6,66 +29,24 @@
     </head>
 <body>
 <?php
-
 ?>
 <div class="content">
-
 <h1><a href=index.php>Dockcheck</a></h1>
+<?php
+if(isset($_GET['update'])){
+  unset($_GET['update']);
+  echo "<div class=\"loading-container\">
+  <div class=\"loading\"></div>
+  <div id=\"loading-text\">loading</div>
+  </div>";
+  echo "This might take a while, it depends on how many containers are running";
+  bg();
+}
+?>
 <header>
   <h1><a href=index.php?update>Check for updates</a></h1>
-  
 </header>
 <?
-
-
-
-
-
-
-if(isset($_GET['update'])){
-  
-  $create_file_update = fopen("/var/www/html/update.txt", "w") or die("Unable to open file!");
-  $txt = '1';
-  fwrite($create_file_update, $txt);
-  
-  
-  $read_file = file_get_contents('/var/www/html/update.txt');
-  
-  
-  if($read_file == '1'){
-    echo "<div class=\"loader\"></div>";
-    echo "This might take a while, it depends on how many containers are running";
-    
-    while($read_file == '1'){
-      $read_file = file_get_contents('/var/www/html/update.txt');
-      
-      
-flush();
-
-  
-    
-
-      if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
-      $url = "https://";   
-      else  
-      $url = "http://";   
-      
-      $url.= $_SERVER['HTTP_HOST'];   
-      $url.= $_SERVER['REQUEST_URI'];    
-      
-      $url_stripped = str_replace("?update", "", $url);
-
-if($read_file == '0') {
-    echo "<script>window.location = '$url_stripped'</script>";
-  }else{ 
-    sleep(4);
-}
-  }
-  }
-
-}
-
-
 $filename = '/app/containers';
 $f = fopen($filename, 'r');
 
@@ -115,12 +96,9 @@ $arraysizeupdate = count($conupdate_match);
                 echo '<td></td>';
                 echo '</tr>';
             }
-          }
-        
+      }
         ?>
-        
     </table>
-    
   </div>
   <div class="column">
     <table>
@@ -139,7 +117,7 @@ $arraysizeupdate = count($conupdate_match);
                 echo '<td></td>';
                 echo '</tr>';
             }
-          }
+      }
         ?>
     </table>
 
