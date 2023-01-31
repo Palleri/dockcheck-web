@@ -10,5 +10,5 @@ RUN curl -L "https://github.com/regclient/regclient/releases/download/v0.4.5/reg
 COPY run.sh /app/run.sh
 COPY dockcheck /tmp/dockcheck
 COPY src/ /var/www/tmp
-
+COPY watcher.sh /var/www/tmp/watcher.sh
 ENTRYPOINT ["sh", "/app/run.sh"]
