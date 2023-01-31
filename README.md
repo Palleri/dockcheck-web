@@ -38,6 +38,7 @@ to
 | `Hanging processes` | 2023-01-29 | Closed |
 | `Not displaying in ascending order` | 2023-01-29 | Closed |
 | `Blank/error text on index while script is running` | 2023-01-29 | Closed |
+| `Redirect error while checking for update` | 2023-01-31 | Closed |
 
 -------
 Checking for new images at startup and once a day at midnight.
