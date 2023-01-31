@@ -1,5 +1,3 @@
-
-
 <html>
     <head>
     <title>Docker Updates</title>
@@ -37,14 +35,14 @@ if(isset($_GET['update'])){
   if($read_file == '1'){
     echo "<div class=\"loader\"></div>";
     echo "This might take a while, it depends on how many containers are running";
-    $i = '0';
+    
     while($read_file == '1'){
       $read_file = file_get_contents('/var/www/html/update.txt');
       
       
 flush();
 
-    }
+  
     
 
       if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
@@ -56,10 +54,13 @@ flush();
       $url.= $_SERVER['REQUEST_URI'];    
       
       $url_stripped = str_replace("?update", "", $url);
-      
-    echo "<script>window.location = '$url_stripped'</script>";
-    
 
+if($read_file == '0') {
+    echo "<script>window.location = '$url_stripped'</script>";
+  }else{ 
+    sleep(1);
+}
+  }
   }
 
 }
