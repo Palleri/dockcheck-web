@@ -8,7 +8,8 @@
 
 This image provide an webpage running as a container.
 
-<img alt="logo" src="https://i.imgur.com/ElFdJ9t.png">
+
+![](https://github.com/Palleri/dockcheck-web/blob/main/examplegui.gif)
 
 -------
 
