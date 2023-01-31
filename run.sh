@@ -3,6 +3,7 @@ echo "# Starting Dockcheck-web #"
 echo "# Checking for new updates #"
 echo "# This might take a while, it depends on how many containers are running #"
 chmod +x /app/dockcheck.sh
+chmod +x /var/www/tmp/watcher.sh
 cp /var/www/tmp/* /var/www/html/
 touch /var/www/html/update.txt
 chown www-data:www-data /var/www/html/update.txt
