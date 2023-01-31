@@ -58,7 +58,7 @@ flush();
 if($read_file == '0') {
     echo "<script>window.location = '$url_stripped'</script>";
   }else{ 
-    sleep(1);
+    sleep(4);
 }
   }
   }
