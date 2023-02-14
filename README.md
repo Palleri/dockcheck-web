@@ -6,7 +6,7 @@
 
 ### A script checking updates for docker images without the need of pulling - then having the option to auto-update.
 
-This image provide an webpage running as a container.
+This image provide a webpage running as a container.
 
 
 ![](https://github.com/Palleri/dockcheck-web/blob/main/examplegui.gif)
