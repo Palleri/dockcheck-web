@@ -6,9 +6,15 @@ All cred goes to Mag37 making this amazing script!
 This image use dockcheck provided by Mag37.
 
 [github/Mag37/dockcheck](https://github.com/mag37/dockcheck)
--------
 
-This image provide a webpage running as a container.
+
+
+## Dependencies:
+[regclient/regctl](https://github.com/regclient/regclient) (Licensed under Apache-2.0 License)
+
+
+
+# This image provide a webpage running as a container.
 
 
 ![](https://github.com/Palleri/dockcheck-web/blob/main/examplegui.gif)
@@ -36,8 +42,6 @@ For more security add the :ro to volumes docker.sock
 
 Use with care, make sure you keep this container safe and do not published on the internet.
 
-
--------
 
 # ARM support 
 Available at [hub.docker/Palleri](https://hub.docker.com/r/palleri/dockcheck-web/tags)
