@@ -18,9 +18,6 @@ This image use [dockcheck](https://github.com/mag37/dockcheck) provided by Mag37
 
 ----
 
-# This image provide a webpage running as a container.
-
-
 ![](https://github.com/Palleri/dockcheck-web/blob/main/examplegui.gif)
 
 
