@@ -1,12 +1,16 @@
-# Dockcheck
-### A script checking updates for docker images without the need of pulling - then having the option to auto-update.
+# dockcheck-web
+
+A webpage showing available image updates for your running containers.
+
+Checking for new images at startup, once a day or via the button "Check for updates".
+
+## Based on [mag37/dockcheck](https://github.com/mag37/dockcheck)
+
+>### A script checking updates for docker images without the need of pulling - then having the option to auto-update.
 
 All cred goes to Mag37 making this amazing script!
 
-This image use dockcheck provided by Mag37.
-
-[github/Mag37/dockcheck](https://github.com/mag37/dockcheck)
-
+This image use [dockcheck](https://github.com/mag37/dockcheck) provided by Mag37.
 
 
 ## Dependencies:
@@ -34,8 +38,6 @@ services:
       - ./data:/var/www/html
       - /var/run/docker.sock:/var/run/docker.sock:ro
 ```
-
-Checking for new images at startup, once a day or via the button "Check for updates".
 
 # Security concern
 For more security add the :ro to volumes docker.sock
