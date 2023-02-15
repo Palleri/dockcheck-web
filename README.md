@@ -12,7 +12,7 @@ This image use dockcheck provided by Mag37.
 ## Dependencies:
 [regclient/regctl](https://github.com/regclient/regclient) (Licensed under Apache-2.0 License)
 
-
+----
 
 # This image provide a webpage running as a container.
 
