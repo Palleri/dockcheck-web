@@ -1,19 +1,47 @@
-# DockCheck
-## All cred goes to Mag37 making this amazing script!
-### This image use dockcheck provided by Mag37.
-[Dockcheck @github/Mag37](https://github.com/mag37/dockcheck)
--------
-
+# Dockcheck
 ### A script checking updates for docker images without the need of pulling - then having the option to auto-update.
+
+All cred goes to Mag37 making this amazing script!
+
+This image use dockcheck provided by Mag37.
+
+[github/Mag37/dockcheck](https://github.com/mag37/dockcheck)
+-------
 
 This image provide a webpage running as a container.
 
 
 ![](https://github.com/Palleri/dockcheck-web/blob/main/examplegui.gif)
 
+
+docker-compose.yml
+```yml
+version: '3.2'
+services:
+  dockcheck-web:
+    container_name: dockcheck-web
+    image: 'palleri/dockcheck-web:latest'
+    restart: unless-stopped
+    ports:
+      - '80:80'
+    volumes:
+      - ./data:/var/www/html
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+```
+
+Checking for new images at startup, once a day or via the button "Check for updates".
+
+# Security concern
+For more security add the :ro to volumes docker.sock
+
+Use with care, make sure you keep this container safe and do not published on the internet.
+
+
 -------
 
-# ARM support now available at [hub.docker/Palleri](https://hub.docker.com/r/palleri/dockcheck-web/tags)
+# ARM support 
+Available at [hub.docker/Palleri](https://hub.docker.com/r/palleri/dockcheck-web/tags)
+
 Git branch (ARM)
 
 Change image from 
@@ -41,22 +69,8 @@ to
 | `Redirect error while checking for update` | 2023-01-31 | Closed |
 
 -------
-Checking for new images at startup and once a day at midnight.
 
 
-```yml
-version: '3.2'
-services:
-  dockcheck-web:
-    container_name: dockcheck-web
-    image: 'palleri/dockcheck-web:latest'
-    restart: unless-stopped
-    ports:
-      - '80:80'
-    volumes:
-      - ./data:/var/www/html
-      - /var/run/docker.sock:/var/run/docker.sock
-```
 * Contributors
   - [Mag37](https://github.com/Mag37) 👑
   - [t0rnis](https://github.com/t0rnis) 🪖🐛
