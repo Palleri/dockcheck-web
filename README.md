@@ -15,6 +15,7 @@ This image use [dockcheck](https://github.com/mag37/dockcheck) provided by Mag37
 
 ## Dependencies:
 [regclient/regctl](https://github.com/regclient/regclient) (Licensed under Apache-2.0 License)
+[inotify-tools](https://github.com/inotify-tools/inotify-tools) (Licensed under GPL-2.0 license)
 
 ----
 
