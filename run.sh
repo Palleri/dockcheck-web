@@ -2,6 +2,24 @@
 echo "# Starting Dockcheck-web #"
 echo "# Checking for new updates #"
 echo "# This might take a while, it depends on how many containers are running #"
+echo "test notify"
+
+
+if [ "$NOTIFY" == "true" ]; then
+
+    if [ ! -z "$DISCORD_NOTIFY" ]; then
+        echo $DISCORD_NOTIFY > /app/DISCORD_NOTIFY
+    fi
+
+
+
+#declare -a StringArray=($DISCORD_NOTIFY $TELEGRAM_NOTIFY)
+#for val in ${StringArray[@]}; do
+#echo $val 
+#done
+fi
+
+echo "slut test"
 chmod +x /app/dockcheck.sh
 chmod +x /var/www/tmp/watcher.sh
 cp /var/www/tmp/* /var/www/html/
