@@ -43,7 +43,7 @@ services:
   ...
 ```
 
-## If you want a different notification service just ask and I will try to implement it (if [APPRISE](https://github.com/caronc/apprise#productivity-based-notifications) have support for it)
+## If you want a different notification service just ask and I will try to implement it (if [apprise](https://github.com/caronc/apprise#productivity-based-notifications) have support for it)
 
 
 ### Example for discord, remove the `api/webhook`
