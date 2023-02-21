@@ -14,6 +14,7 @@ RUN curl -L "https://github.com/docker/compose/releases/download/v2.15.1/docker-
 
 COPY run.sh /app/run.sh
 COPY dockcheck /tmp/dockcheck
+COPY crontab /app/crontab
 COPY src/ /var/www/tmp
 COPY watcher.sh /var/www/tmp/watcher.sh
 

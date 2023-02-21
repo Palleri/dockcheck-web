@@ -27,6 +27,9 @@ cp /var/www/tmp/* /var/www/html/
 touch /var/www/html/update.txt
 chown www-data:www-data /var/www/html/update.txt
 
+
+rm -rf /etc/crontab
+cp /app/crontab /etc/crontab
 rm -rf /etc/cron.daily/*
 cp /tmp/dockcheck /etc/cron.daily/dockcheck
 chmod +x /app/regctl
