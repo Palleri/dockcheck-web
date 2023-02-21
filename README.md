@@ -25,7 +25,7 @@ This image use [dockcheck](https://github.com/mag37/dockcheck) provided by Mag37
 ![](https://github.com/Palleri/dockcheck-web/blob/main/examplegui.gif)
 
 
-# Features
+# Notifications
 * Notifications (Not tested on ARM) via [APPRISE](https://github.com/caronc/apprise)
 
 ### Environment variables
@@ -37,11 +37,29 @@ services:
   ...
     environment:
       - NOTIFY=true
-      - DISCORD_NOTIFY=https://discord.com/api/webhooks/XXXXxxxxXXxxxXXxxX
+      - DISCORD_NOTIFY=discord://Dockcheck-web@xxxxxxx/xxxxx
   ...
 ```
 
-### If you want a different notification service just ask and I will try to implement it (If [APPRISE](https://github.com/caronc/apprise#productivity-based-notifications) have support for it)
+## If you want a different notification service just ask and I will try to implement it (If [APPRISE](https://github.com/caronc/apprise#productivity-based-notifications) have support for it)
+
+
+### Example for discord, remove the `api/webhook`
+From
+
+> ```https://discord.com/api/webhooks/xxxxx/xxxxxx``` 
+
+To this 
+
+> `discord://xxxxxxx/xxxxx`
+
+Or use it as it is
+
+> `https://discord.com/api/webhooks/xxxxxx/xxxx`
+
+
+
+
 
 | Notification Service | Environment variable | Service ID | Default Port | Example Syntax |
 | --- | --- | --- | --- | --- |
@@ -82,7 +100,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     environment:
       - NOTIFY=true
-      - DISCORD_NOTIFY=https://discord.com/api/webhooks/XXXXxxxxXXxxxXXxxX
+      - DISCORD_NOTIFY=discord://Dockcheck-web@xxxxxxx/xxxxx
 ```
 
 ### If cron is not running at the correct time 12:25 make sure this is applied
