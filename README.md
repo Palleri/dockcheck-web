@@ -44,6 +44,11 @@ services:
       DISCORD_NOTIFY: "discord://Dockcheck-web@xxxxx/xxxxxx"
 ```
 
+# Security concern
+For more security add the :ro to volumes docker.sock
+
+Use with care, make sure you keep this container safe and do not published on the internet.
+
 # Proxy
 ### If you want to use proxy you can use HTTP_PROXY environment variable
 
@@ -137,12 +142,6 @@ This is what worked for me
 | Test discord notify | 2023-02-21 | Success | 2023-02-21 |
 | Test mail notify | 2023-02-21 | Success | 2023-02-21 |
 | Test telegram notify | 2023-03-21 | Success | 2023-03-21 |
-
-# Security concern
-For more security add the :ro to volumes docker.sock
-
-Use with care, make sure you keep this container safe and do not published on the internet.
-
 
 # ARM support 
 Available at [hub.docker/Palleri](https://hub.docker.com/r/palleri/dockcheck-web/tags)
