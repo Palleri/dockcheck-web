@@ -61,8 +61,8 @@ Notification Service | Environment variable | Service ID | Default Port | Exampl
 | TODO | Result | Implemented |
 | --- | --- | --- | 
 | Test discord notify | Success | 2023-02-21 |
-| Test mail notify | Failed | |
-| Test telegram notify | | |
+| Test mail notify | Failed | X |
+| Test telegram notify | X | X |
 
 
 
