@@ -8,14 +8,45 @@ if [ -f "$DISCORD_FILE" ]; then
 DISCORD_URL=$(</app/DISCORD_NOTIFY)
 grep -oPz '(?<=Containers with updates available:\n)(?s).*(?=\n\n)' /app/containers > /app/notifymsg 
         notifymsg=/app/notifymsg
-        if [ -f "$notifymsg" ]; then
+        if [ ! -s "$notifymsg" ]; then
 
                 sed -i '1i There is updates available' /app/notifymsg
                 cat /app/notifymsg | apprise $DISCORD_URL
                 rm /app/notifymsg
-                echo "1" > /app/notifysent
-        else
-        echo "0" /app/notifysent
+                
+
+        fi
+
+fi
+
+MAIL_FILE=/app/MAIL_NOTIFY
+if [ -f "$MAIL_FILE" ]; then
+MAIL_URL=$(</app/MAIL_NOTIFY)
+grep -oPz '(?<=Containers with updates available:\n)(?s).*(?=\n\n)' /app/containers > /app/notifymsg 
+        notifymsg=/app/notifymsg
+        if [ ! -s "$notifymsg" ]; then
+
+                sed -i '1i There is updates available' /app/notifymsg
+                cat /app/notifymsg | apprise $MAIL_URL
+                rm /app/notifymsg
+                
+
+        fi
+
+fi
+
+TELEGRAM_FILE=/app/TELEGRAM_NOTIFY
+if [ -f "$TELEGRAM_FILE" ]; then
+TELEGRAM_URL=$(</app/TELEGRAM_NOTIFY)
+grep -oPz '(?<=Containers with updates available:\n)(?s).*(?=\n\n)' /app/containers > /app/notifymsg 
+        notifymsg=/app/notifymsg
+        if [ ! -s "$notifymsg" ]; then
+
+                sed -i '1i There is updates available' /app/notifymsg
+                cat /app/notifymsg | apprise $TELEGRAM_URL
+                rm /app/notifymsg
+                
+
         fi
 
 fi

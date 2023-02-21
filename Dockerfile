@@ -2,6 +2,7 @@ FROM php:8.1-rc-apache
 ENV NOTIFY=""
 ENV DISCORD_NOTIFY=""
 ENV TELEGRAM_NOTIFY=""
+ENV MAIL_NOTIFY=""
 RUN curl -L "https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-linux-x86_64" -o /usr/local/bin/docker-compose \
  && mkdir /app \
  && mkdir /var/www/tmp \
