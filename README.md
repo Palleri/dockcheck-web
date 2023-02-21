@@ -58,6 +58,8 @@ Notification Service | Environment variable | Service ID | Default Port | Exampl
 ### If cron is not running at the correct time 12:25 make sure this is applied
 
 ```yml
+version: '3.2'
+services:
   ...
       - /etc/localtime:/etc/localtime:ro
   ...
