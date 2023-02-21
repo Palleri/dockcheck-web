@@ -78,7 +78,7 @@ Notification Service | Environment variable | Service ID | Default Port | Exampl
 
 # TODO List
 | TODO | Tested | Result | Implemented |
-| --- | --- | --- | --- |
+| --- | :---: | :---: | :---: |
 | Test discord notify | 2023-02-21 | Success | 2023-02-21 |
 | Test mail notify | 2023-02-21 | Failed | X |
 | Test telegram notify | X | X |
@@ -147,9 +147,9 @@ to
 ```
 
 # Future ideas
-| Feature | Timeline | Implemented |
-| --- | --- | --- |
-| Notifications (Not tested on ARM) | 2023-02-21 | Alpha |
+| Feature | Timeline | Stage |
+| --- | :---: | :---: |
+| Notifications | March 2023 | Alpha |
 | Update via webgui | Unknown (Need Help) | |
 | Multiple hosts one gui | Unknown | |
 
