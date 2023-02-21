@@ -93,6 +93,37 @@ This image use [apprise](https://github.com/caronc/apprise) for notifications
 Set `NOTIFY=true` in docker-compose.yml to enable notifications
 
 
+### Setup Example for Telegram <img src="https://github.com/walkxcode/dashboard-icons/blob/main/png/telegram.png" width="26"> 
+Start a chat with `@BotFather` and follow the guided steps.   
+Create a new bot: `/newbot`   
+Nickname: `PumpkinsInShorts` Username: `CuriousPlumber`   
+Note down the token replied: *Use this token to access the HTTP API:*   
+`0123456789:RandomLettersAndNumbers-2morestuff`   
+
+Now create a new group in Telegram, invite the bot with it's username `@CuriousPlumber`   
+When in the group, note down the end of the url, eg `web.telegram.org/z/#-123456789` -> `-123456789`   
+If only using the phone app, invite `@RawDataBot` to the group and it'll post the id.   
+
+Then finally combine the token + the ID of the chatgroup, in this example:   
+`0123456789:RandomLettersAndNumbers-2morestuff-123456789`   
+Add that row to the docker-compose.yml   
+```yml
+version: '3.2'
+services:
+  ...
+    environment:
+      NOTIFY: "true"
+      TELEGRAM_NOTIFY: "tgram://0123456789:RandomLettersAndNumbers-2morestuff-123456789"
+  ...
+```
+
+### Setup Example for Discord <img src="https://github.com/walkxcode/dashboard-icons/blob/main/png/discord.png" width="26"> 
+
+Remove the `api/webhook` from `https://discord.com/api/webhooks/xxxxx/xxxxxx`   
+To this `discord://xxxxx/xxxxxx`   
+
+Or use it as it is `https://discord.com/api/webhooks/xxxxx/xxxxxx`   
+
 ```yml
 version: '3.2'
 services:
@@ -103,24 +134,9 @@ services:
   ...
 ```
 
+
+
 ## If you want a different notification service just ask and I will try to implement it (if [apprise](https://github.com/caronc/apprise#productivity-based-notifications) have support for it)
-
-
-### Example for discord, remove the `api/webhook`
-From
-
-> ```https://discord.com/api/webhooks/xxxxx/xxxxxx``` 
-
-To this 
-
-> `discord://xxxxx/xxxxxx`
-
-Or use it as it is
-
-> `https://discord.com/api/webhooks/xxxxx/xxxxxx`
-
-
-
 
 
 | Notification Service | Environment variable | Service ID | Default Port | Example Syntax |
