@@ -46,7 +46,7 @@ services:
 | Notification Service | Environment variable | Service ID | Default Port | Example Syntax |
 | --- | --- | --- | --- | --- |
 | `Discord` | DISCORD_NOTIFY | discord:// | (TCP) 443 | discord://webhook_id/webhook_token <br /> discord://avatar@webhook_id/webhook_token |
-| `Telegram` | TELEGRAM_NOTIFY | tgram:// | (TCP) 443 | tgram://bottoken/ChatID <br /> tgram://bottoken/ChatID1/ChatID2/ChatIDN |
+
 
 
 
@@ -54,6 +54,7 @@ services:
 Notification Service | Environment variable | Service ID | Default Port | Example Syntax |
 | --- | --- | --- | --- | --- |
 | `Mail` | MAIL_NOTIFY | mailto:// | (TCP) 25 | mailto://userid:pass@domain.com <br /> mailto://domain.com?user=userid&pass=password <br /> mailto://domain.com:2525?user=userid&pass=password <br /> mailto://user@gmail.com&pass=password <br /> mailto://mySendingUsername:mySendingPassword@example.com?to=receivingAddress@example.com <br /> mailto://userid:password@example.com?smtp=mail.example.com&from=noreply@example.com&name=no%20reply |
+| `Telegram` | TELEGRAM_NOTIFY | tgram:// | (TCP) 443 | tgram://bottoken/ChatID <br /> tgram://bottoken/ChatID1/ChatID2/ChatIDN |
 
 
 # TODO List
@@ -61,6 +62,7 @@ Notification Service | Environment variable | Service ID | Default Port | Exampl
 | --- | --- | --- | 
 | Test discord notify | Success | 2023-02-21 |
 | Test mail notify | Failed | |
+| Test telegram notify | | |
 
 
 
