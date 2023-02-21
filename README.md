@@ -37,7 +37,7 @@ services:
   ...
     environment:
       - NOTIFY=true
-      - DISCORD_NOTIFY=discord://Dockcheck-web@xxxxxxx/xxxxx
+      - DISCORD_NOTIFY=discord://Dockcheck-web@xxxxx/xxxxxx
   ...
 ```
 
@@ -51,11 +51,11 @@ From
 
 To this 
 
-> `discord://xxxxxxx/xxxxx`
+> `discord://xxxxx/xxxxxx`
 
 Or use it as it is
 
-> `https://discord.com/api/webhooks/xxxxxx/xxxx`
+> `https://discord.com/api/webhooks/xxxxx/xxxxxx`
 
 
 
@@ -100,7 +100,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     environment:
       - NOTIFY=true
-      - DISCORD_NOTIFY=discord://Dockcheck-web@xxxxxxx/xxxxx
+      - DISCORD_NOTIFY=discord://Dockcheck-web@xxxxx/xxxxxx
 ```
 
 ### If cron is not running at the correct time 12:25 make sure this is applied
