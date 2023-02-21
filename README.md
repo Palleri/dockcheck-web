@@ -36,8 +36,8 @@ version: '3.2'
 services:
   ...
     environment:
-    NOTIFY=true
-    DISCORD_NOTIFY=discord://webhook_id/webhook_token
+      - NOTIFY=true
+      - DISCORD_NOTIFY=discord://webhook_id/webhook_token
   ...
 ```
 
@@ -64,8 +64,8 @@ services:
       - ./data:/var/www/html
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
-    NOTIFY=true
-    DISCORD_NOTIFY=discord://webhook_id/webhook_token
+      - NOTIFY=true
+      - DISCORD_NOTIFY=discord://webhook_id/webhook_token
 ```
 
 # Security concern
