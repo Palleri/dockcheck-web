@@ -29,7 +29,7 @@ This image use [dockcheck](https://github.com/mag37/dockcheck) provided by Mag37
 * Notifications (Not tested on ARM) via [APPRISE](https://github.com/caronc/apprise)
 
 ### Environment variables
-Set NOTIFY=true to enable notifications in docker-compose.yaml
+Set NOTIFY=true in docker-compose.yml to enable notifications
 
 ```yml
 version: '3.2'
