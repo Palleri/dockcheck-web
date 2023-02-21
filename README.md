@@ -66,23 +66,22 @@ Or use it as it is
 | Notification Service | Environment variable | Service ID | Default Port | Example Syntax |
 | --- | --- | --- | --- | --- |
 | `Discord` | DISCORD_NOTIFY | discord:// | (TCP) 443 | discord://webhook_id/webhook_token <br /> discord://avatar@webhook_id/webhook_token |
-
-
-
-
-### Not Tested fully
-Notification Service | Environment variable | Service ID | Default Port | Example Syntax |
-| --- | --- | --- | --- | --- |
 | `Mail` | MAIL_NOTIFY | mailto:// | (TCP) 25 | mailto://userid:pass@domain.com <br /> mailto://domain.com?user=userid&pass=password <br /> mailto://domain.com:2525?user=userid&pass=password <br /> mailto://user@gmail.com&pass=password <br /> mailto://mySendingUsername:mySendingPassword@example.com?to=receivingAddress@example.com <br /> mailto://userid:password@example.com?smtp=mail.example.com&from=noreply@example.com&name=no%20reply |
 | `Telegram` | TELEGRAM_NOTIFY | tgram:// | (TCP) 443 | tgram://bottoken/ChatID <br /> tgram://bottoken/ChatID1/ChatID2/ChatIDN |
+
+
+This is what worked for me
+* MAIL_NOTIFY=`mailtos://mail.server.com/?user=testuser@domain.com&pass=xxxx`
+
+
 
 
 # TODO List
 | TODO | Tested | Result | Implemented |
 | --- | :---: | :---: | :---: |
 | Test discord notify | 2023-02-21 | Success | 2023-02-21 |
-| Test mail notify | 2023-02-21 | Failed | X |
-| Test telegram notify | X | X |
+| Test mail notify | 2023-02-21 | Success | 2023-02-21 |
+| Test telegram notify | 2023-03-21 | Success | 2023-03-21 |
 
 
 

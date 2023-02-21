@@ -26,8 +26,9 @@ grep -oPz '(?<=Containers with updates available:\n)(?s).*(?=\n\n)' /app/contain
         notifymsg=/app/notifymsg
         if [ -s "$notifymsg" ]; then
 
-                sed -i '1i There is updates available for:' /app/notifymsg
-                cat /app/notifymsg | apprise $MAIL_URL
+                sed -i '1i \ ' /app/notifymsg
+                notifymsgcontent="$(cat /app/notifymsg | tr -d '\0')"
+                apprise -t "Dockcheck-web" -b "There is updates available for: $notifymsgcontent" $MAIL_URL
                 rm /app/notifymsg
                 
 
