@@ -25,6 +25,61 @@ This image use [dockcheck](https://github.com/mag37/dockcheck) provided by Mag37
 ![](https://github.com/Palleri/dockcheck-web/blob/main/examplegui.gif)
 
 
+docker-compose.yml
+```yml
+version: '3.2'
+services:
+  dockcheck-web:
+    container_name: dockcheck-web
+    image: 'palleri/dockcheck-web:latest'
+    restart: unless-stopped
+    ports:
+      - '80:80'
+    volumes:
+      - ./data:/var/www/html
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      NOTIFY: "true"
+      DISCORD_NOTIFY: "discord://Dockcheck-web@xxxxx/xxxxxx"
+```
+
+# Proxy
+### If you want to use proxy you can use HTTP_PROXY environment variable
+
+```yml
+version: '3.2'
+services:
+  ...
+    environment:  
+      HTTP_PROXY: "http://proxy.homelab.net:3128"
+      HTTPS_PROXY: "http://proxy.homelab.net:3128"
+  ...
+```
+
+
+# Date & Timezone
+### If cron is not running at the correct time 12:25 make sure this is applied
+
+```yml
+version: '3.2'
+services:
+  ...
+    volumes:  
+      - /etc/localtime:/etc/localtime:ro
+  ...
+```
+Might also need timezone
+
+```yml
+version: '3.2'
+services:
+  ...
+    volumes:  
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+  ...
+```
 
 # Notifications (Not tested on ARM) 
 This image use [apprise](https://github.com/caronc/apprise) for notifications
@@ -38,8 +93,8 @@ version: '3.2'
 services:
   ...
     environment:
-      - NOTIFY=true
-      - DISCORD_NOTIFY=discord://Dockcheck-web@xxxxx/xxxxxx
+      NOTIFY: "true"
+      DISCORD_NOTIFY: "discord://Dockcheck-web@xxxxx/xxxxxx"
   ...
 ```
 
@@ -82,49 +137,6 @@ This is what worked for me
 | Test discord notify | 2023-02-21 | Success | 2023-02-21 |
 | Test mail notify | 2023-02-21 | Success | 2023-02-21 |
 | Test telegram notify | 2023-03-21 | Success | 2023-03-21 |
-
-
-
-docker-compose.yml
-```yml
-version: '3.2'
-services:
-  dockcheck-web:
-    container_name: dockcheck-web
-    image: 'palleri/dockcheck-web:latest'
-    restart: unless-stopped
-    ports:
-      - '80:80'
-    volumes:
-      - ./data:/var/www/html
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /etc/localtime:/etc/localtime:ro
-    environment:
-      - NOTIFY=true
-      - DISCORD_NOTIFY=discord://Dockcheck-web@xxxxx/xxxxxx
-```
-
-### If cron is not running at the correct time 12:25 make sure this is applied
-
-```yml
-version: '3.2'
-services:
-  ...
-    volumes:  
-      - /etc/localtime:/etc/localtime:ro
-  ...
-```
-Might also need timezone
-
-```yml
-version: '3.2'
-services:
-  ...
-    volumes:  
-      - /etc/localtime:/etc/localtime:ro
-      - /etc/timezone:/etc/timezone:ro
-  ...
-```
 
 # Security concern
 For more security add the :ro to volumes docker.sock

@@ -9,14 +9,18 @@ if [ "$NOTIFY" == "true" ]; then
 
     if [ ! -z "$DISCORD_NOTIFY" ]; then
         echo $DISCORD_NOTIFY > /app/DISCORD_NOTIFY
+        echo "Discord notify activated"
+        
     fi
 
     if [ ! -z "$MAIL_NOTIFY" ]; then
         echo $MAIL_NOTIFY > /app/MAIL_NOTIFY
+        echo "Mail notify activated"
     fi
 
     if [ ! -z "$TELEGRAM_NOTIFY" ]; then
         echo $TELEGRAM_NOTIFY > /app/TELEGRAM_NOTIFY
+        echo "Telegram notify activated"
     fi
 fi
 
