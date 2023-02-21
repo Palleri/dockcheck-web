@@ -37,7 +37,7 @@ services:
   ...
     environment:
       - NOTIFY=true
-      - DISCORD_NOTIFY=discord://webhook_id/webhook_token
+      - DISCORD_NOTIFY=https://discord.com/api/webhooks/XXXXxxxxXXxxxXXxxX
   ...
 ```
 
@@ -73,7 +73,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     environment:
       - NOTIFY=true
-      - DISCORD_NOTIFY=discord://webhook_id/webhook_token
+      - DISCORD_NOTIFY=https://discord.com/api/webhooks/XXXXxxxxXXxxxXXxxX
 ```
 
 ### If cron is not running at the correct time 12:25 make sure this is applied
