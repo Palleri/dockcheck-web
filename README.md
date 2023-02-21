@@ -16,11 +16,38 @@ This image use [dockcheck](https://github.com/mag37/dockcheck) provided by Mag37
 ## Dependencies:
 [regclient/regctl](https://github.com/regclient/regclient) (Licensed under Apache-2.0 License)
 
-[inotify-tools](https://github.com/inotify-tools/inotify-tools) (Licensed under GPL-2.0 license)
+[inotify-tools](https://github.com/inotify-tools/inotify-tools) (Licensed under GPL-2.0 License)
+
+[APPRISE](https://github.com/caronc/apprise) (Licensed under BSD 3-Clause License)
 
 ----
 
 ![](https://github.com/Palleri/dockcheck-web/blob/main/examplegui.gif)
+
+
+# Features
+* Notifications (Not tested on ARM) via [APPRISE](https://github.com/caronc/apprise)
+
+### Environment variables
+Set NOTIFY=true to enable notifications in docker-compose.yaml
+
+```yml
+version: '3.2'
+services:
+  ...
+    environment:
+    NOTIFY=true
+    DISCORD_NOTIFY=discord://webhook_id/webhook_token
+  ...
+```
+
+| Notification Service | Environment variable | Service ID | Default Port | Example Syntax |
+| --- | --- | --- | --- | --- |
+| `Discord` | DISCORD_NOTIFY | discord:// | (TCP) 443 | discord://webhook_id/webhook_token <br /> discord://avatar@webhook_id/webhook_token |
+| `Telegram` | TELEGRAM_NOTIFY | tgram:// | (TCP) 443 | tgram://bottoken/ChatID <br /> tgram://bottoken/ChatID1/ChatID2/ChatIDN |
+| `Mail` | MAIL_NOTIFY | mailto:// | (TCP) 25 | mailto://userid:pass@domain.com <br /> mailto://domain.com?user=userid&pass=password <br /> mailto://domain.com:2525?user=userid&pass=password <br /> mailto://user@gmail.com&pass=password <br /> mailto://mySendingUsername:mySendingPassword@example.com?to=receivingAddress@example.com <br /> mailto://userid:password@example.com?smtp=mail.example.com&from=noreply@example.com <br /> &name=no%20reply |
+
+### If you want a different notification service just ask and I will try to implement it (If [APPRISE](https://github.com/caronc/apprise#productivity-based-notifications) have support for it)
 
 
 docker-compose.yml
@@ -36,6 +63,9 @@ services:
     volumes:
       - ./data:/var/www/html
       - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+    NOTIFY=true
+    DISCORD_NOTIFY=discord://webhook_id/webhook_token
 ```
 
 # Security concern
@@ -58,11 +88,19 @@ to
     image: 'palleri/dockcheck-web:arm'
 ```
 
-### Future ideas
-* Email notification on available images
-* Update and pull new image on selected container via webgui
+# Future ideas
+| Feature | Timeline | Implemented |
+| --- | --- | --- |
+| Notifications (Not tested on ARM) | 2023-02-21 | Alpha |
+| Update via webgui | Unknown (Need Help) | |
+| Multiple hosts one gui | Unknown | |
 
-### Bugs and fixes
+* Update via webui
+  - Need help with how to make docker.sock recreate docker-compose without the need for docker-compose.yml
+    - Docker remote API good or bad?
+
+
+# Bugs and fixes
 
 | Description | Date | Status |
 | --- | --- | --- |
