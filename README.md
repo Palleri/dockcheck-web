@@ -2,7 +2,7 @@
 
 A webpage showing available image updates for your running containers.
 
-Checking for new images at startup, once a day or via the button "Check for updates".
+Checking for new images at startup, once a day and via the button "Check for updates".
 
 ## Based on [mag37/dockcheck](https://github.com/mag37/dockcheck)
 
@@ -25,8 +25,9 @@ This image use [dockcheck](https://github.com/mag37/dockcheck) provided by Mag37
 ![](https://github.com/Palleri/dockcheck-web/blob/main/examplegui.gif)
 
 
-# Notifications
-* Notifications (Not tested on ARM) via [APPRISE](https://github.com/caronc/apprise)
+
+# Notifications (Not tested on ARM) 
+This image use [apprise](https://github.com/caronc/apprise) for notifications
 
 ### Environment variables
 Set `NOTIFY=true` in docker-compose.yml to enable notifications
