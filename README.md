@@ -55,6 +55,13 @@ Notification Service | Environment variable | Service ID | Default Port | Exampl
 | --- | --- | --- | --- | --- |
 | `Mail` | MAIL_NOTIFY | mailto:// | (TCP) 25 | mailto://userid:pass@domain.com <br /> mailto://domain.com?user=userid&pass=password <br /> mailto://domain.com:2525?user=userid&pass=password <br /> mailto://user@gmail.com&pass=password <br /> mailto://mySendingUsername:mySendingPassword@example.com?to=receivingAddress@example.com <br /> mailto://userid:password@example.com?smtp=mail.example.com&from=noreply@example.com&name=no%20reply |
 
+### If cron is not running at the correct time 12:25 make sure this is applied
+
+```yml
+  ...
+      - /etc/localtime:/etc/localtime:ro
+  ...
+```
 
 docker-compose.yml
 ```yml
@@ -69,6 +76,7 @@ services:
     volumes:
       - ./data:/var/www/html
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /etc/localtime:/etc/localtime:ro
     environment:
       - NOTIFY=true
       - DISCORD_NOTIFY=discord://webhook_id/webhook_token
