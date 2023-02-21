@@ -47,7 +47,7 @@ services:
 # Security concern
 For more security add the :ro to volumes docker.sock
 
-Use with care, make sure you keep this container safe and do not published on the internet.
+Use with care, make sure you keep this container safe and do not publish on the internet.
 
 # Proxy
 ### If you want to use proxy you can use HTTP_PROXY environment variable
