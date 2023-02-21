@@ -58,10 +58,10 @@ Notification Service | Environment variable | Service ID | Default Port | Exampl
 
 
 # TODO List
-| TODO | Result | Implemented |
-| --- | --- | --- | 
-| Test discord notify | Success | 2023-02-21 |
-| Test mail notify | Failed | X |
+| TODO | Tested | Result | Implemented |
+| --- | --- | --- | --- |
+| Test discord notify | 2023-02-21 | Success | 2023-02-21 |
+| Test mail notify | 2023-02-21 | Failed | X |
 | Test telegram notify | X | X |
 
 
