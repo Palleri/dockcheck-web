@@ -147,12 +147,8 @@ services:
 | `Mail secure` | MAIL_NOTIFY | mailtos:// | (TCP) 587 | mailtos://userid:pass@domain.com <br /> mailtos://domain.com?user=userid&pass=password <br /> mailtos://domain.com:465?user=userid&pass=password <br /> mailtos://user@hotmail.com&pass=password <br /> mailtos://mySendingUsername:mySendingPassword@example.com?to=receivingAddress@example.com <br />mailtos://userid:password@example.com?smtp=mail.example.com&from=noreply@example.com&name=no%20reply | 
 
 
-
 This is what worked for me
 * MAIL_NOTIFY=`mailtos://mail.server.com/?user=testuser@domain.com&pass=xxxx`
-
-
-
 
 # TODO List
 | TODO | Tested | Result | Implemented |
@@ -160,6 +156,20 @@ This is what worked for me
 | Test discord notify | 2023-02-21 | Success | 2023-02-21 |
 | Test mail notify | 2023-02-21 | Success | 2023-02-21 |
 | Test telegram notify | 2023-03-21 | Success | 2023-03-21 |
+| Slim version without webgui (Only notifications) | | | |
+| All versions to ARM | | | |
+
+# Future ideas
+| Feature | Timeline | Stage |
+| --- | :---: | :---: |
+| Notifications | March 2023 | Alpha |
+| Update via webgui | Unknown (Need Help) | |
+| Slim version without webgui (Only notifications) | March 2023 | | |
+| Multiple hosts one gui | Unknown | |
+
+* Update via webui
+  - Need help with how to make docker.sock recreate docker-compose without the need for docker-compose.yml
+    - Docker remote API good or bad?
 
 # ARM support 
 Available at [hub.docker/Palleri](https://hub.docker.com/r/palleri/dockcheck-web/tags)
@@ -175,16 +185,7 @@ to
     image: 'palleri/dockcheck-web:arm'
 ```
 
-# Future ideas
-| Feature | Timeline | Stage |
-| --- | :---: | :---: |
-| Notifications | March 2023 | Alpha |
-| Update via webgui | Unknown (Need Help) | |
-| Multiple hosts one gui | Unknown | |
 
-* Update via webui
-  - Need help with how to make docker.sock recreate docker-compose without the need for docker-compose.yml
-    - Docker remote API good or bad?
 
 
 # Bugs and fixes
