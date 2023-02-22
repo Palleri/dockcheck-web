@@ -10,10 +10,21 @@ grep -oPz '(?<=Containers with updates available:\n)(?s).*(?=\n\n)' /app/contain
         notifymsg=/app/notifymsg
         if [ -s "$notifymsg" ]; then
 
-                sed -i '1i There is updates available for:' /app/notifymsg
-                cat /app/notifymsg | apprise $DISCORD_URL
-                rm /app/notifymsg
                 
+                NOTIFY_DEBUG=/app/NOTIFY_DEBUG
+                if [ -f $NOTIFY_DEBUG ]; then
+
+                        sed -i '1i There is updates available for:' /app/notifymsg
+                        cat /app/notifymsg | apprise -vvvv $DISCORD_URL
+                        rm /app/notifymsg
+                
+
+                else
+
+                        sed -i '1i There is updates available for:' /app/notifymsg
+                        cat /app/notifymsg | apprise $DISCORD_URL
+                        rm /app/notifymsg
+                fi
 
         fi
 
@@ -26,12 +37,21 @@ grep -oPz '(?<=Containers with updates available:\n)(?s).*(?=\n\n)' /app/contain
         notifymsg=/app/notifymsg
         if [ -s "$notifymsg" ]; then
 
-                sed -i '1i \ ' /app/notifymsg
-                notifymsgcontent="$(cat /app/notifymsg | tr -d '\0')"
-                apprise -t "Dockcheck-web" -b "There is updates available for: $notifymsgcontent" $MAIL_URL
-                rm /app/notifymsg
-                
+                NOTIFY_DEBUG=/app/NOTIFY_DEBUG
+                if [ -f $NOTIFY_DEBUG ]; then
 
+                        sed -i '1i \ ' /app/notifymsg
+                        notifymsgcontent="$(cat /app/notifymsg | tr -d '\0')"
+                        apprise -vvvv -t "Dockcheck-web" -b "There is updates available for: $notifymsgcontent" $MAIL_URL
+                        rm /app/notifymsg
+
+                else
+
+                        sed -i '1i \ ' /app/notifymsg
+                        notifymsgcontent="$(cat /app/notifymsg | tr -d '\0')"
+                        apprise -t "Dockcheck-web" -b "There is updates available for: $notifymsgcontent" $MAIL_URL
+                        rm /app/notifymsg
+                fi
         fi
 
 fi
@@ -43,9 +63,20 @@ grep -oPz '(?<=Containers with updates available:\n)(?s).*(?=\n\n)' /app/contain
         notifymsg=/app/notifymsg
         if [ -s "$notifymsg" ]; then
 
-                sed -i '1i There is updates available for:' /app/notifymsg
-                cat /app/notifymsg | apprise $TELEGRAM_URL
-                rm /app/notifymsg
+                NOTIFY_DEBUG=/app/NOTIFY_DEBUG
+                if [ -f $NOTIFY_DEBUG ]; then
+
+                        sed -i '1i There is updates available for:' /app/notifymsg
+                        cat /app/notifymsg | apprise -vvvv $TELEGRAM_URL
+                        rm /app/notifymsg
+
+                else
+
+                        sed -i '1i There is updates available for:' /app/notifymsg
+                        cat /app/notifymsg | apprise $TELEGRAM_URL
+                        rm /app/notifymsg
+                        
+                fi
                 
 
         fi

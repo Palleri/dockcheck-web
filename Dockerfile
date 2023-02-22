@@ -1,8 +1,9 @@
 FROM php:8.1-rc-apache
-ENV NOTIFY=""
-ENV DISCORD_NOTIFY=""
-ENV TELEGRAM_NOTIFY=""
-ENV MAIL_NOTIFY=""
+ENV NOTIFY="" \
+DISCORD_NOTIFY="" \
+TELEGRAM_NOTIFY="" \
+MAIL_NOTIFY="" \
+NOTIFY_DEBUG=""
 RUN curl -L "https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-linux-x86_64" -o /usr/local/bin/docker-compose \
  && mkdir /app \
  && mkdir /var/www/tmp \
@@ -18,4 +19,4 @@ COPY crontab /app/crontab
 COPY src/ /var/www/tmp
 COPY watcher.sh /var/www/tmp/watcher.sh
 
-ENTRYPOINT ["/app/run.sh", "env", "env", "env"]
+ENTRYPOINT ["/app/run.sh", "env"]

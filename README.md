@@ -64,7 +64,7 @@ services:
 
 
 # Date & Timezone
-### If cron is not running at the correct time 12:25 make sure this is applied
+### If cron is not running at the correct time 17:30 make sure this is applied
 
 ```yml
 version: '3.2'
@@ -90,8 +90,9 @@ services:
 This image use [apprise](https://github.com/caronc/apprise) for notifications
 
 ### Environment variables
-Set `NOTIFY=true` in docker-compose.yml to enable notifications
+Set `NOTIFY=true` to enable notifications
 
+Set `NOTIFY=true` to enable DEBUG mode. Be carefull, your tokens and passwords might be visible in docker logs
 
 ### Setup Example for Telegram <img src="https://github.com/walkxcode/dashboard-icons/blob/main/png/telegram.png" width="26"> 
 Start a chat with `@BotFather` and follow the guided steps.   

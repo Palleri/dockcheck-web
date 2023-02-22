@@ -6,6 +6,11 @@ echo "# This might take a while, it depends on how many containers are running #
 
 
 if [ "$NOTIFY" == "true" ]; then
+    if [ $NOTIFY_DEBUG == "true" ]; then
+        echo $NOTIFY_DEBUG > /app/NOTIFY_DEBUG
+        echo "NOTIFY DEBUGMODE ACTIVATED"
+        
+    fi
 
     if [ ! -z "$DISCORD_NOTIFY" ]; then
         echo $DISCORD_NOTIFY > /app/DISCORD_NOTIFY
@@ -39,8 +44,9 @@ cp /tmp/dockcheck /etc/cron.daily/dockcheck
 chmod +x /app/regctl
 chmod +x /etc/cron.daily/dockcheck
 cp /app/regctl /usr/bin/
-/app/dockcheck.sh -n | sed -r "s:\x1B\[[0-9;]*[mK]::g" > /app/containers_temp
+run-parts /etc/cron.daily/
+#/app/dockcheck.sh -n | sed -r "s:\x1B\[[0-9;]*[mK]::g" > /app/containers_temp
 cat /app/containers_temp > /app/containers
-service cron start
+service cron restart
 /var/www/html/watcher.sh </dev/null >/dev/null 2>&1 & disown
-apache2-foreground
+exec apache2-foreground
