@@ -143,6 +143,7 @@ services:
 | --- | --- | --- | --- | --- |
 | `Discord` | DISCORD_NOTIFY | discord:// | (TCP) 443 | discord://webhook_id/webhook_token <br /> discord://avatar@webhook_id/webhook_token |
 | `Mail` | MAIL_NOTIFY | mailto:// | (TCP) 25 | mailto://userid:pass@domain.com <br /> mailto://domain.com?user=userid&pass=password <br /> mailto://domain.com:2525?user=userid&pass=password <br /> mailto://user@gmail.com&pass=password <br /> mailto://mySendingUsername:mySendingPassword@example.com?to=receivingAddress@example.com <br /> mailto://userid:password@example.com?smtp=mail.example.com&from=noreply@example.com&name=no%20reply |
+| `Mail secure` | MAIL_NOTIFY | mailtos:// | (TCP) 587 | mailtos://userid:pass@domain.com <br /> mailtos://domain.com?user=userid&pass=password <br /> mailtos://domain.com:465?user=userid&pass=password <br /> mailtos://user@hotmail.com&pass=password <br /> mailtos://mySendingUsername:mySendingPassword@example.com?to=receivingAddress@example.com <br /> mailtos://userid:password@example.com?smtp=mail.example.com&from=noreply@example.com&name=no%20reply | 
 | `Telegram` | TELEGRAM_NOTIFY | tgram:// | (TCP) 443 | tgram://bottoken/ChatID <br /> tgram://bottoken/ChatID1/ChatID2/ChatIDN |
 
 
