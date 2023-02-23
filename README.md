@@ -86,7 +86,7 @@ services:
   ...
 ```
 
-# Notifications (Not tested on ARM) 
+# Notifications
 This image use [apprise](https://github.com/caronc/apprise) for notifications
 
 ### Environment variables
