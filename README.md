@@ -1,4 +1,4 @@
-# dockcheck-web
+# dockcheck-web with ARM support
 
 A webpage showing available image updates for your running containers.
 
@@ -171,23 +171,6 @@ This is what worked for me
 * Update via webui
   - Need help with how to make docker.sock recreate docker-compose without the need for docker-compose.yml
     - Docker remote API good or bad?
-
-# ARM support 
-Available at [hub.docker/Palleri](https://hub.docker.com/r/palleri/dockcheck-web/tags)
-
-Git branch (ARM)
-
-Change image from 
-```yml
-    image: 'palleri/dockcheck-web:latest'
-```
-to
-```yml
-    image: 'palleri/dockcheck-web:arm'
-```
-
-
-
 
 # Bugs and fixes
 
