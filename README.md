@@ -90,9 +90,11 @@ services:
 This image use [apprise](https://github.com/caronc/apprise) for notifications
 
 ### Environment variables
-Set `NOTIFY=true` to enable notifications
+Set `NOTIFY: true` to enable notifications
 
-Set `NOTIFY=true` to enable DEBUG mode. Be carefull, your tokens and passwords might be visible in docker logs
+Set `NOTIFY: true` to enable DEBUG mode. Be carefull, your tokens and passwords might be visible in docker logs
+
+Set `NOTIFY_URLS: "gram://0123456789:RandomLettersAndNumbers-2morestuff-123456789"`
 
 ### Setup Example for Telegram <img src="https://github.com/walkxcode/dashboard-icons/blob/main/png/telegram.png" width="26"> 
 Start a chat with `@BotFather` and follow the guided steps.   
