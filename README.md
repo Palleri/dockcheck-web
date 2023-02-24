@@ -154,9 +154,9 @@ services:
 ### Tested
 | Service | Tested | Result | 
 | --- | :---: | :---: | 
-| Discord | 2023-02-24 | Success |
-| Mail | 2023-02-24 | Success | 
-| Telegram | 2023-02-24 | Success | 
+| Discord | 2023-02-24 | :heavy_check_mark: |
+| Mail | 2023-02-24 | :heavy_check_mark: | 
+| Telegram | 2023-02-24 | :heavy_check_mark: | 
 
 
 
