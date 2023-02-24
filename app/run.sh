@@ -20,23 +20,7 @@ if [ "$NOTIFY" = "true" ]; then
         
     fi
 fi
-#
-#    if [ ! -z "$DISCORD_NOTIFY" ]; then
-#        echo $DISCORD_NOTIFY > /app/DISCORD_NOTIFY
-#        echo "Discord notify activated"
-#        
-#    fi
-#
-#    if [ ! -z "$MAIL_NOTIFY" ]; then
-#        echo $MAIL_NOTIFY > /app/MAIL_NOTIFY
-#        echo "Mail notify activated"
-#    fi
-#
-#    if [ ! -z "$TELEGRAM_NOTIFY" ]; then
-#        echo $TELEGRAM_NOTIFY > /app/TELEGRAM_NOTIFY
-#        echo "Telegram notify activated"
-#    fi
-#fi
+
 
 
 cp -r /app/src/ /var/www/tmp/
@@ -47,9 +31,6 @@ cp /var/www/tmp/src/style.css /var/www/html/style.css
 touch /var/www/html/update.txt
 chown www-data:www-data /var/www/html/*
 cp /app/watcher.sh /var/www/html/watcher.sh
-
-
-
 rm -rf /etc/crontab
 cp  /app/crontab /etc/crontab
 rm -rf /etc/cron.daily/*
@@ -58,7 +39,6 @@ chmod +x /app/regctl
 chmod +x /etc/cron.daily/dockcheck
 cp /app/regctl /usr/bin/
 run-parts /etc/cron.daily/
-#/app/dockcheck.sh -n | sed -r "s:\x1B\[[0-9;]*[mK]::g" > /app/containers_temp
 cat /app/containers_temp > /app/containers
 service cron start
 /var/www/html/watcher.sh </dev/null >/dev/null 2>&1 &
