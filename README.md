@@ -221,6 +221,7 @@ services:
 | [Zulip Chat](https://github.com/caronc/apprise/wiki/Notify_zulip) | zulip://  | (TCP) 443   | zulip://botname@Organization/Token<br />zulip://botname@Organization/Token/Stream<br />zulip://botname@Organization/Token/Email
 
 
+### Mail
 This is what worked for me
 * NOTIFY_URL: "mailtos://mail.server.com/?user=testuser@domain.com&pass=xxxx"
 
