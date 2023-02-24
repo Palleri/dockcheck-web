@@ -1,4 +1,4 @@
-# dockcheck-web with ARM support
+# dockcheck-web
 
 A webpage showing available image updates for your running containers.
 
