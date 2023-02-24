@@ -239,7 +239,7 @@ This is what worked for me
 # TODO List
 | TODO | Tested | Result | Implemented |
 | --- | :---: | :---: | :---: |
-| ARM64 and AMD64 Support | 2023-02-23 | Success | 2023-02-23 |
+| ARM64 and AMD64 Support | 2023-02-23 | :heavy_check_mark: | 2023-02-23 |
 | Slim version without webgui (Only notifications) | | | |
 
 
@@ -259,12 +259,12 @@ This is what worked for me
 
 | Description | Date | Status |
 | --- | --- | --- |
-| `Cronjob not working properly` | 2023-01-28 | Closed |
-| `Script not running correctly` | 2023-01-29 | Closed |
-| `Hanging processes` | 2023-01-29 | Closed |
-| `Not displaying in ascending order` | 2023-01-29 | Closed |
-| `Blank/error text on index while script is running` | 2023-01-29 | Closed |
-| `Redirect error while checking for update` | 2023-01-31 | Closed |
+| `Cronjob not working properly` | 2023-01-28 | :heavy_check_mark: |
+| `Script not running correctly` | 2023-01-29 | :heavy_check_mark: |
+| `Hanging processes` | 2023-01-29 | :heavy_check_mark: |
+| `Not displaying in ascending order` | 2023-01-29 | :heavy_check_mark: |
+| `Blank/error text on index while script is running` | 2023-01-29 | :heavy_check_mark: |
+| `Redirect error while checking for update` | 2023-01-31 | :heavy_check_mark: |
 
 -------
 
