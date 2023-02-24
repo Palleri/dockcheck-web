@@ -61,4 +61,5 @@ run-parts /etc/cron.daily/
 cat /app/containers_temp > /app/containers
 service cron start
 /var/www/html/watcher.sh </dev/null >/dev/null 2>&1 &
+echo "ServerName localhost" >> /etc/apache2/apache2.conf
 exec apache2-foreground
