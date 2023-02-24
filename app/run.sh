@@ -44,9 +44,10 @@ chmod +x /app/dockcheck.sh
 chmod +x /app/watcher.sh
 cp /var/www/tmp/src/index.php /var/www/html/index.php
 cp /var/www/tmp/src/style.css /var/www/html/style.css
-cp /app/watcher.sh /var/www/html/watcher.sh
 touch /var/www/html/update.txt
 chown www-data:www-data /var/www/html/*
+cp /app/watcher.sh /var/www/html/watcher.sh
+
 
 
 rm -rf /etc/crontab
