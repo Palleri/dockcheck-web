@@ -10,7 +10,6 @@ NOTIFY_URLS=""
 RUN case ${TARGETPLATFORM} in \
          "linux/amd64")  os=amd64  ;; \
          "linux/arm64")  os=arm64  ;; \
-         "linux/arm/v7") os=armhf  ;; \
     esac \
 && mkdir /app \
 && mkdir /var/www/tmp \
