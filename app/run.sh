@@ -7,28 +7,36 @@ echo "# This might take a while, it depends on how many containers are running #
 
 
 if [ "$NOTIFY" = "true" ]; then
+    if [ -n "$NOTIFY_URLS" ]; then
+        echo $NOTIFY_URLS > /app/NOTIFY_URLS
+        echo "Notify activated"
+    fi
+
+
+
     if [ "$NOTIFY_DEBUG" = "true" ]; then
         echo $NOTIFY_DEBUG > /app/NOTIFY_DEBUG
         echo "NOTIFY DEBUGMODE ACTIVATED"
         
     fi
-
-    if [ ! -z "$DISCORD_NOTIFY" ]; then
-        echo $DISCORD_NOTIFY > /app/DISCORD_NOTIFY
-        echo "Discord notify activated"
-        
-    fi
-
-    if [ ! -z "$MAIL_NOTIFY" ]; then
-        echo $MAIL_NOTIFY > /app/MAIL_NOTIFY
-        echo "Mail notify activated"
-    fi
-
-    if [ ! -z "$TELEGRAM_NOTIFY" ]; then
-        echo $TELEGRAM_NOTIFY > /app/TELEGRAM_NOTIFY
-        echo "Telegram notify activated"
-    fi
 fi
+#
+#    if [ ! -z "$DISCORD_NOTIFY" ]; then
+#        echo $DISCORD_NOTIFY > /app/DISCORD_NOTIFY
+#        echo "Discord notify activated"
+#        
+#    fi
+#
+#    if [ ! -z "$MAIL_NOTIFY" ]; then
+#        echo $MAIL_NOTIFY > /app/MAIL_NOTIFY
+#        echo "Mail notify activated"
+#    fi
+#
+#    if [ ! -z "$TELEGRAM_NOTIFY" ]; then
+#        echo $TELEGRAM_NOTIFY > /app/TELEGRAM_NOTIFY
+#        echo "Telegram notify activated"
+#    fi
+#fi
 
 
 cp -r /app/src/ /var/www/tmp/

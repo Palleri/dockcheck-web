@@ -3,82 +3,112 @@
 cat /app/containers_temp > /app/containers
 echo "$(date). Cron ran without error." >> /var/log/cron.log
 
-DISCORD_FILE=/app/DISCORD_NOTIFY
-if [ -f "$DISCORD_FILE" ]; then
-DISCORD_URL=$(</app/DISCORD_NOTIFY)
-grep -oPz '(?<=Containers with updates available:\n)(?s).*(?=\n\n)' /app/containers > /app/notifymsg 
-        notifymsg=/app/notifymsg
-        if [ -s "$notifymsg" ]; then
 
+
+NOTIFY_URLS=/app/NOTIFY_URLS
+if [ -f "$NOTIFY_URLS" ]; then
+        NOTIFY_URLS=$(</app/NOTIFY_URLS)
+        grep -oPz '(?<=Containers with updates available:\n)(?s).*(?=\n\n)' /app/containers > /app/notifymsg 
+        notifymsg=/app/notifymsg
+        
+        if [ -s "$notifymsg" ]; then
                 
                 NOTIFY_DEBUG=/app/NOTIFY_DEBUG
-                if [ -f $NOTIFY_DEBUG ]; then
+                if [ -f "$NOTIFY_DEBUG" ]; then
 
                         sed -i '1i There is updates available for:' /app/notifymsg
-                        cat /app/notifymsg | apprise -vvvv $DISCORD_URL
-                        rm /app/notifymsg
-                
-
-                else
-
-                        sed -i '1i There is updates available for:' /app/notifymsg
-                        cat /app/notifymsg | apprise $DISCORD_URL
-                        rm /app/notifymsg
-                fi
-
-        fi
-
-fi
-
-MAIL_FILE=/app/MAIL_NOTIFY
-if [ -f "$MAIL_FILE" ]; then
-MAIL_URL=$(</app/MAIL_NOTIFY)
-grep -oPz '(?<=Containers with updates available:\n)(?s).*(?=\n\n)' /app/containers > /app/notifymsg 
-        notifymsg=/app/notifymsg
-        if [ -s "$notifymsg" ]; then
-
-                NOTIFY_DEBUG=/app/NOTIFY_DEBUG
-                if [ -f $NOTIFY_DEBUG ]; then
-
-                        sed -i '1i \ ' /app/notifymsg
-                        notifymsgcontent="$(cat /app/notifymsg | tr -d '\0')"
-                        apprise -vvvv -t "Dockcheck-web" -b "There is updates available for: $notifymsgcontent" $MAIL_URL
-                        rm /app/notifymsg
-
-                else
-
-                        sed -i '1i \ ' /app/notifymsg
-                        notifymsgcontent="$(cat /app/notifymsg | tr -d '\0')"
-                        apprise -t "Dockcheck-web" -b "There is updates available for: $notifymsgcontent" $MAIL_URL
-                        rm /app/notifymsg
-                fi
-        fi
-
-fi
-
-TELEGRAM_FILE=/app/TELEGRAM_NOTIFY
-if [ -f "$TELEGRAM_FILE" ]; then
-TELEGRAM_URL=$(</app/TELEGRAM_NOTIFY)
-grep -oPz '(?<=Containers with updates available:\n)(?s).*(?=\n\n)' /app/containers > /app/notifymsg 
-        notifymsg=/app/notifymsg
-        if [ -s "$notifymsg" ]; then
-
-                NOTIFY_DEBUG=/app/NOTIFY_DEBUG
-                if [ -f $NOTIFY_DEBUG ]; then
-
-                        sed -i '1i There is updates available for:' /app/notifymsg
-                        cat /app/notifymsg | apprise -vvvv $TELEGRAM_URL
-                        rm /app/notifymsg
-
-                else
-
-                        sed -i '1i There is updates available for:' /app/notifymsg
-                        cat /app/notifymsg | apprise $TELEGRAM_URL
-                        rm /app/notifymsg
+                        notifymsg="$(cat /app/notifymsg | tr -d '\0')"
                         
-                fi
+                        apprise -vvvv -t "Dockcheck-web Notify" -b "$notifymsg" "$NOTIFY_URLS"
+                        rm /app/notifymsg
                 
 
-        fi
+                else
 
+                        sed -i '1i There is updates available for:' /app/notifymsg
+                        notifymsg="$(cat /app/notifymsg | tr -d '\0')"
+                        apprise -t "Dockcheck-web Notify" -b "$notifymsg" "$NOTIFY_URLS"
+                        rm /app/notifymsg
+                fi
+        fi
 fi
+
+#DISCORD_FILE=/app/DISCORD_NOTIFY
+#if [ -f "$DISCORD_FILE" ]; then
+#DISCORD_URL=$(</app/DISCORD_NOTIFY)
+#grep -oPz '(?<=Containers with updates available:\n)(?s).*(?=\n\n)' /app/containers > /app/notifymsg 
+#        notifymsg=/app/notifymsg
+#        if [ -s "$notifymsg" ]; then
+#
+#                
+#                NOTIFY_DEBUG=/app/NOTIFY_DEBUG
+#                if [ -f $NOTIFY_DEBUG ]; then
+#
+#                        sed -i '1i There is updates available for:' /app/notifymsg
+#                        cat /app/notifymsg | apprise -vvvv $DISCORD_URL
+#                        rm /app/notifymsg
+#                
+#
+#                else
+#
+#                        sed -i '1i There is updates available for:' /app/notifymsg
+#                        cat /app/notifymsg | apprise $DISCORD_URL
+#                        rm /app/notifymsg
+#                fi
+#
+#        fi
+#
+#fi
+
+#MAIL_FILE=/app/MAIL_NOTIFY
+#if [ -f "$MAIL_FILE" ]; then
+#MAIL_URL=$(</app/MAIL_NOTIFY)
+#grep -oPz '(?<=Containers with updates available:\n)(?s).*(?=\n\n)' /app/containers > /app/notifymsg 
+#        notifymsg=/app/notifymsg
+#        if [ -s "$notifymsg" ]; then
+#
+#                NOTIFY_DEBUG=/app/NOTIFY_DEBUG
+#                if [ -f $NOTIFY_DEBUG ]; then
+#
+#                        sed -i '1i \ ' /app/notifymsg
+#                        notifymsgcontent="$(cat /app/notifymsg | tr -d '\0')"
+#                        apprise -vvvv -t "Dockcheck-web" -b "There is updates available for: $notifymsgcontent" $MAIL_URL
+#                        rm /app/notifymsg
+#
+#                else
+#
+#                        sed -i '1i \ ' /app/notifymsg
+#                        notifymsgcontent="$(cat /app/notifymsg | tr -d '\0')"
+#                        apprise -t "Dockcheck-web" -b "There is updates available for: $notifymsgcontent" $MAIL_URL
+#                        rm /app/notifymsg
+#                fi
+#        fi
+#
+#fi
+
+#TELEGRAM_FILE=/app/TELEGRAM_NOTIFY
+#if [ -f "$TELEGRAM_FILE" ]; then
+#TELEGRAM_URL=$(</app/TELEGRAM_NOTIFY)
+#grep -oPz '(?<=Containers with updates available:\n)(?s).*(?=\n\n)' /app/containers > /app/notifymsg 
+#        notifymsg=/app/notifymsg
+#        if [ -s "$notifymsg" ]; then
+#
+#                NOTIFY_DEBUG=/app/NOTIFY_DEBUG
+#                if [ -f $NOTIFY_DEBUG ]; then
+#
+#                        sed -i '1i There is updates available for:' /app/notifymsg
+#                        cat /app/notifymsg | apprise -vvvv $TELEGRAM_URL
+#                        rm /app/notifymsg
+#
+#                else
+#
+#                        sed -i '1i There is updates available for:' /app/notifymsg
+#                        cat /app/notifymsg | apprise $TELEGRAM_URL
+#                        rm /app/notifymsg
+#                        
+#                fi
+#                
+#
+#        fi
+#
+#fi
