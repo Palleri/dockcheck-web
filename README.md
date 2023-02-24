@@ -149,6 +149,15 @@ services:
 ```
 
 
+### Tested
+| Service | Tested | Result | 
+| --- | :---: | :---: | 
+| Discord | 2023-02-24 | Success |
+| Mail notify | 2023-02-24 | Success | 
+| Telegram notify | 2023-02-24 | Success | 
+
+
+
 
 | Notification Service | Service ID | Default Port | Example Syntax |
 | -------------------- | ---------- | ------------ | -------------- |
@@ -228,10 +237,7 @@ This is what worked for me
 # TODO List
 | TODO | Tested | Result | Implemented |
 | --- | :---: | :---: | :---: |
-| Test discord notify | 2023-02-21 | Success | 2023-02-21 |
-| Test mail notify | 2023-02-21 | Success | 2023-02-21 |
-| Test telegram notify | 2023-03-21 | Success | 2023-03-21 |
-| ARM64 and AMD64 Support | 2023-02-23 | Success | 2023-03-23 |
+| ARM64 and AMD64 Support | 2023-02-23 | Success | 2023-02-23 |
 | Slim version without webgui (Only notifications) | | | |
 
 
