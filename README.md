@@ -153,8 +153,8 @@ services:
 | Service | Tested | Result | 
 | --- | :---: | :---: | 
 | Discord | 2023-02-24 | Success |
-| Mail notify | 2023-02-24 | Success | 
-| Telegram notify | 2023-02-24 | Success | 
+| Mail | 2023-02-24 | Success | 
+| Telegram | 2023-02-24 | Success | 
 
 
 
