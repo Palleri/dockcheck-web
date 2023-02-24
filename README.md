@@ -258,7 +258,7 @@ This is what worked for me
 # Bugs and fixes
 
 | Description | Date | Status |
-| --- | --- | --- |
+| --- | --- | :---: |
 | `Cronjob not working properly` | 2023-01-28 | :heavy_check_mark: |
 | `Script not running correctly` | 2023-01-29 | :heavy_check_mark: |
 | `Hanging processes` | 2023-01-29 | :heavy_check_mark: |
