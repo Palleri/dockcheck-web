@@ -157,6 +157,7 @@ services:
 | Discord | 2023-02-24 | :heavy_check_mark: |
 | Mail | 2023-02-24 | :heavy_check_mark: | 
 | Telegram | 2023-02-24 | :heavy_check_mark: | 
+| Gotify | 2023-02-25 | :heavy_check_mark: |
 
 
 
