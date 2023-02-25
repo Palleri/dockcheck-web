@@ -64,7 +64,7 @@ services:
 
 
 # Date & Timezone
-### If cron is not running at the correct time 17:30 make sure this is applied
+### If cron is not running at the correct time 12:30 make sure this is applied
 
 ```yml
 version: '3.2'
