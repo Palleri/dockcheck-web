@@ -241,15 +241,13 @@ This is what worked for me
 | TODO | Tested | Result | Implemented |
 | --- | :---: | :---: | :---: |
 | ARM64 and AMD64 Support | 2023-02-23 | :heavy_check_mark: | 2023-02-23 |
-| Slim version without webgui (Only notifications) | | | |
+| Slim version without webgui (Only notifications) | 2023-02-24 | :heavy_check_mark: | 2023-02-26 |
 
 
 # Future ideas
 | Feature | Timeline | Stage |
 | --- | :---: | :---: |
-| Notifications | March 2023 | Alpha |
 | Update via webgui | Unknown (Need Help) | |
-| Slim version without webgui (Only notifications) | March 2023 | | |
 | Multiple hosts one gui | Unknown | |
 
 * Update via webui
