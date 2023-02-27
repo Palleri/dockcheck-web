@@ -170,6 +170,8 @@ services:
 | Mail | 2023-02-24 | :heavy_check_mark: | 
 | Telegram | 2023-02-24 | :heavy_check_mark: | 
 | Gotify | 2023-02-25 | :heavy_check_mark: |
+| Matrix | 2023-02-26 | :heavy_check_mark: |
+| HomeAssistant | 2023-02-26 | :heavy_check_mark: |
 
 
 
