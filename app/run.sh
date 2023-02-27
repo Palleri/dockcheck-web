@@ -4,22 +4,22 @@ echo "# Checking for new updates #"
 echo "# This might take a while, it depends on how many containers are running #"
 
 
-
-
 if [ "$NOTIFY" = "true" ]; then
     if [ -n "$NOTIFY_URLS" ]; then
         echo $NOTIFY_URLS > /app/NOTIFY_URLS
         echo "Notify activated"
     fi
 
-
+    if [ -n "$EXCLUDE" ]; then
+    echo $EXCLUDE > /app/EXCLUDE
+    fi
 
     if [ "$NOTIFY_DEBUG" = "true" ]; then
         echo $NOTIFY_DEBUG > /app/NOTIFY_DEBUG
-        echo "NOTIFY DEBUGMODE ACTIVATED"
-        
+        echo "NOTIFY DEBUGMODE ACTIVATED"  
     fi
 fi
+
 
 
 

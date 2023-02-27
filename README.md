@@ -137,6 +137,18 @@ services:
   ...
 ```
 
+### Exclude containers from update check
+Use the name on each container in comma separated variable `EXCLUDE`.
+```yml
+version: '3.2'
+services:
+  ...
+    environment:
+      NOTIFY: "true"
+      NOTIFY_URLS: "discord://Dockcheck-web@xxxxx/xxxxxx"
+      EXCLUDE: "nginx,plex,prowlarr"
+  ...
+```
 
 ### Example for multiple urls
 
