@@ -3,6 +3,16 @@ echo "# Starting Dockcheck-web #"
 echo "# Checking for new updates #"
 echo "# This might take a while, it depends on how many containers are running #"
 
+if [ -n "$CRON_TIME" ]; then
+    
+    hour=$(echo $CRON_TIME | grep -Po "\d*(?=:)")
+    minute=$(echo $CRON_TIME | grep -Po "(?<=:)\d*")
+    echo "$minute  $hour   * * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )" >> /app/crontab
+
+    else
+
+    echo "30 12   * * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )" >> /app/crontab 
+fi
 
 if [ "$NOTIFY" = "true" ]; then
     if [ -n "$NOTIFY_URLS" ]; then
