@@ -161,7 +161,18 @@ services:
       NOTIFY_URLS: "discord://Dockcheck-web@xxxxx/xxxxxx tgram://0123456789:RandomLettersAndNumbers-2morestuff-123456789"
   ...
 ```
+### Set your own notification time
 
+```yml
+version: '3.2'
+services:
+  ...
+    environment:
+      CRON_TIME: "12:56"
+      NOTIFY: "true"
+      NOTIFY_URLS: "discord://Dockcheck@xxxxx/xxxxxx tgram://0123456789:RandomLettersAndNumbers-2morestuff-123456789"
+  ...
+```
 
 ### Tested
 | Service | Tested | Result | 
