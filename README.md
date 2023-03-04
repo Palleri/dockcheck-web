@@ -92,7 +92,7 @@ This image use [apprise](https://github.com/caronc/apprise) for notifications
 ### Environment variables
 Set `NOTIFY: true` to enable notifications
 
-Set `NOTIFY: true` to enable DEBUG mode. Be carefull, your tokens and passwords might be visible in docker logs
+Set `NOTIFY_DEBUG: true` to enable DEBUG mode. Be carefull, your tokens and passwords might be visible in docker logs
 
 Set `NOTIFY_URLS: "tgram://0123456789:RandomLettersAndNumbers-2morestuff-123456789"`
 
