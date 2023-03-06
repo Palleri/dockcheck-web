@@ -3,13 +3,13 @@
     set_time_limit(300);
 function bg()
 {
-  $create_file_update = fopen("/var/www/html/update.txt", "w") or die("Unable to open file!");
+  $create_file_update = fopen("/var/www/update.txt", "w") or die("Unable to open file!");
   $txt = '1';
   fwrite($create_file_update, $txt);
-  $read_file = file_get_contents('/var/www/html/update.txt');
+  $read_file = file_get_contents('/var/www/update.txt');
   if($read_file == '1'){
     while($read_file == '1'){
-      $read_file = file_get_contents('/var/www/html/update.txt');
+      $read_file = file_get_contents('/var/www/update.txt');
       if($read_file == '1'){
       flush();
       }else{
@@ -42,42 +42,11 @@ if(isset($_GET['update'])){
   echo "This might take a while, it depends on how many containers are running";
   bg();
 }
+
 ?>
 <header>
   <h1><a href=index.php?update>Check for updates</a></h1>
 </header>
-<?
-$filename = '/app/containers';
-$f = fopen($filename, 'r');
-
-if ($f) {
-    $contents = fread($f, filesize($filename));
-    fclose($f);
-    preg_match("/(?<=Containers with errors, wont get updated:\n)(?s).*?(?=\n\n)/", $contents, $conerror_match); 
-    $string_output_error = implode('', $conerror_match);
-    $conerror_match = preg_split('`\n`', $string_output_error);
-
-    preg_match("/(?<=Containers on latest version:\n)(?s).*?(?=\n\n)/", $contents, $conlatest_match);    
-    $string_output_latest = implode('', $conlatest_match);
-    $conlatest_match = preg_split('`\n`', $string_output_latest);
-
-    preg_match("/(?<=Containers with updates available:\n)(?s).*?(?=\n\n)/", $contents, $conupdate_match);
-    $string_output_update = implode('', $conupdate_match);
-    $conupdate_match = preg_split('`\n`', $string_output_update);
-}
-
-
-$keyslatest = array_keys($conlatest_match);
-$arraysizelatest = count($conlatest_match); 
-
-$keyserror = array_keys($conerror_match);
-$arraysizeerror = count($conerror_match);
-
-
-$keysupdate = array_keys($conupdate_match);
-$arraysizeupdate = count($conupdate_match);
-
-?>
 <div class="row">
   <div class="column">
     <table>
@@ -87,16 +56,29 @@ $arraysizeupdate = count($conupdate_match);
         <th></th>
       </tr>
       <?php
-       sort($conlatest_match);
-      if(!empty($conlatest_match)) {
-            for($i=0; $i < $arraysizelatest; $i++) {
-                echo '<tr>';
-                echo '<td>' . $conlatest_match[$keyslatest[$i]] . '</td>';
-                echo '<td></td>';
-                echo '<td></td>';
-                echo '</tr>';
-            }
-      }
+
+$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres");  
+if (!$conn) {  
+ echo "An error occurred.\n";  
+ exit;  
+}  
+
+$results = pg_query($conn, "SELECT * FROM CONTAINERS WHERE LATEST='true' ORDER BY HOST");  
+
+
+
+
+Foreach ($results as $row)
+{
+  echo '<tr>';
+  echo '<td>'. $row ['NAME'].'</td>';
+  echo '<td>'. $row ['HOST'].'</td>';
+  echo '<td></td>';
+  echo '</tr>';
+}
+
+
+
         ?>
     </table>
   </div>
@@ -108,16 +90,20 @@ $arraysizeupdate = count($conupdate_match);
         <th></th>
       </tr>
       <?php
-       sort($conupdate_match);
-      if(!empty($conupdate_match)) {
-            for($i=0; $i < $arraysizeupdate; $i++) {
-                echo '<tr>';
-                echo '<td>' . $conupdate_match[$keysupdate[$i]] . '</td>';
-                echo '<td></td>';
-                echo '<td></td>';
-                echo '</tr>';
-            }
-      }
+
+$file_db = new PDO ('sqlite:/app/containers.db');
+$results = $file_db-> query ('select * FROM CONTAINERS WHERE NEW="true" ORDER BY HOST');
+Foreach ($results as $row)
+{
+  echo '<tr>';
+  echo '<td>'. $row ['NAME'].'</td>';
+  echo '<td>'. $row ['HOST'].'</td>';
+  echo '<td></td>';
+  echo '</tr>';
+}
+
+
+
         ?>
     </table>
 
@@ -134,17 +120,21 @@ $arraysizeupdate = count($conupdate_match);
         <th></th>
       </tr>
       <?php
-       sort($conerror_match);
-        if(!empty($conerror_match)) {
-            for($i=0; $i < $arraysizeerror; $i++) {
-                echo '<tr>';
-                echo '<td>' . $conerror_match[$keyserror[$i]] . '</td>';
-                echo '<td></td>';
-                echo '<td></td>';
-                echo '</tr>';
 
-            }
-          }
+$file_db = new PDO ('sqlite:/app/containers.db');
+$results = $file_db-> query ('select * FROM CONTAINERS WHERE ERROR="true" ORDER BY HOST');
+
+
+Foreach ($results as $row)
+{
+  echo '<tr>';
+  echo '<td>'. $row ['NAME'].'</td>';
+  echo '<td>'. $row ['HOST'].'</td>';
+  echo '<td></td>';
+  echo '</tr>';
+}
+
+
         ?>
     </table>
 

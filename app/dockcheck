@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#Remove everything in database before running dockcheck
+sqlite3 /app/containers.db "DELETE FROM CONTAINERS;"
+
+
+#If exclude is present
 EXCLUDE=/app/EXCLUDE
 if [ -f "$EXCLUDE" ]; then
         EXCLUDE=$(</app/EXCLUDE)
@@ -7,9 +12,29 @@ if [ -f "$EXCLUDE" ]; then
         cat /app/containers_temp > /app/containers
 
         else
-
+#If exclude is not present
         /app/dockcheck.sh | sed -r "s:\x1B\[[0-9;]*[mK]::g" > /app/containers_temp
         cat /app/containers_temp > /app/containers
+
+#Insert into database with hostname + containers
+        HOSTNAME=$(cat /etc/hostname)
+        grep -oPz '(?<=Containers with updates available:\n)(?s).*(?=\n\n)' /app/containers | while read -r line ; do
+        sqlite3 /app/containers.db "INSERT INTO CONTAINERS \
+        (HOST,NAME,LATEST,ERROR,NEW) \
+        VALUES('$HOTNAME','$line','false','false','true');"
+        done
+
+        grep -oPz '(?<=Containers on latest version:\n)(?s).*(?=\n\n)' /app/containers | while read -r line ; do
+        sqlite3 /app/containers.db "INSERT INTO CONTAINERS \
+        (HOST,NAME,LATEST,ERROR,NEW) \
+        VALUES('$HOTNAME','$line','true','false','false');"
+        done
+
+        grep -oPz '(?<=Containers with errors, wont get updated:\n)(?s).*(?=\n\n)' /app/containers | while read -r line ; do
+        sqlite3 /app/containers.db "INSERT INTO CONTAINERS \
+        (HOST,NAME,LATEST,ERROR,NEW) \
+        VALUES('$HOTNAME','$line','false','true','false');"
+        done
 
 fi
 
@@ -42,5 +67,10 @@ if [ -f "$NOTIFY_URLS" ]; then
                 fi
         fi
 fi
+
+
+
+
+
 
 if [ $? -eq 0 ]; then echo "$(date). Cron ran without error." >> /var/log/cron.log ; else echo "$(date). Cron got errors." >> /var/log/cron.log ; fi
