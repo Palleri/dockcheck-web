@@ -37,6 +37,7 @@ cp -r /app/src/ /var/www/tmp/
 chmod +x /app/dockcheck.sh
 chmod +x /app/watcher.sh
 cp /var/www/tmp/src/index.php /var/www/html/index.php
+cp /var/www/tmp/src/api.php /var/www/html/api.php
 cp /var/www/tmp/src/style.css /var/www/html/style.css
 touch /var/www/html/update.txt
 chown www-data:www-data /var/www/html/*
