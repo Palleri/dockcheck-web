@@ -79,7 +79,7 @@ Might also need timezone
 ```yml
 version: '3.2'
 services:
-  ... 
+  ...
     volumes:  
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
