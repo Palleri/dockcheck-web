@@ -1,4 +1,8 @@
-# dockcheck-web
+# dockcheck-web (DCW with exporters will replace this project)
+
+## [DCW (dockcheck-web) with exporter functionality](https://github.com/Palleri/DCW)
+### This project will take over due to rewrite the whole image
+I want to preserve the original dockcheck-web as it is, but for those who want exporters see [DCW with exporter](https://github.com/Palleri/DCW)
 
 A webpage showing available image updates for your running containers.
 
