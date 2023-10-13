@@ -46,6 +46,7 @@ services:
     environment:
       NOTIFY: "true"
       NOTIFY_URLS: "discord://Dockcheck-web@xxxxx/xxxxxx"
+      NOTIFY_DEBUG: true                                # optional
 ```
 
 # Security concern
